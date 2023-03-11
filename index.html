@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zlink is the simplest way to find any link, tool, information you need about Zcash's ecosystem.">
+    <meta name="description" content="Discover Zcash! Zlink is the simplest way to find any link, tool, information you need about Zcash's ecosystem.">
     <meta name="keywords" content="Zcash, All about Zcash, Zcash resources, Zcash guide, Zcash manual, Zcash tools, Zcash Explorers, Zcash explorer list, Zcash wallets, Zcash block, Zcash block time, Zcash Halving, Zcash countdown,">
     <link rel="shortcut icon" href="./img/faviocon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="./Sheets/style.css">
-    <script src="./Sheets/script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="./sheets/style.css">
+    <script src="./sheets/script.js?v=<?=time()?" defer></script>
 </head>
 
 <body>
@@ -99,11 +99,19 @@
                 <li><a href="https://forum.zcashcommunity.com/" target="_blank">Zcash Community</a><sub>#Forum</sub></li>
                 <li><a href="https://electriccoin.co/blog/" target="_blank">Ecosystem updates</a> <sub>#Blog</sub></li>
             </ul>
-        </section>        
+        </section>
+
+        <section>
+            <h2>Tools</h2>
+            <ul>
+                <li><a href="https://paywithz.cash/" target="_blank">PayWithZcash</a> <sub>Zec-payment locator</sub></li>
+                <li><a href="https://zgo.cash/" target="_blank">ZGo</a> <sub>Payment software</sub></li>
+            </ul>
+        </section>
     </div>
     <footer>
         <div><p>© 2023 Zlink</p></div>
-        <div><p>Contact: <a href="mailto:hello@zlink.click">hello@zlink.click</a></p></div>
+        <div><p id="last-update"></p></div>
         <div><p>Support us: <a href="https://zcashblockexplorer.com/address/t1gZfRGuCbCotX9X1o95cUCzokKEq6Z3Dia" target="_blank">t1gZfRGuCbCotX9X1o95cUCzokKEq6Z3Dia</a></p></div>
     </footer>
 </body>
