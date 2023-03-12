@@ -35,13 +35,12 @@ fetch(url)
     function updateTimer() {
       let now = new Date().getTime();
       let distance = countDownDate - now;
-
       let days = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, "0");
       let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, "0");
       let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, "0");
       let seconds = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, "0");
 
-      pTag.innerHTML = `Time to halving: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      pTag.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s to halving.`;
 
       if (distance < 0) {
         clearInterval(x);
@@ -50,7 +49,6 @@ fetch(url)
         requestAnimationFrame(updateTimer);
       }
     }
-
     updateTimer();
   })
   .catch((error) => console.log(error));
