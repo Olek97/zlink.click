@@ -1,10 +1,20 @@
+/* General rules*/
+sub {
+    padding: 1px;
+    font-style: italic;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Header */
 header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
 header > div {
   width: 100%;
   display: flex;
@@ -12,9 +22,10 @@ header > div {
   align-items: center;
 }
 header > div:first-child {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
+/* Body */
 body {
     margin: 0;
     padding: 0;
@@ -33,6 +44,7 @@ body > div > section {
     }
 }
 
+/* Footer */
 footer {
     display: flex;
     flex-wrap: wrap;
@@ -50,13 +62,4 @@ footer > div:last-child {
   footer > div:last-child {
     flex-basis: 100%;
   }
-}
-
-sub {
-    padding: 1px;
-    font-style: italic;
-}
-
-.center {
-    text-align: center;
 }
