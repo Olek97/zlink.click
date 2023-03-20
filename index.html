@@ -10,6 +10,7 @@
     <meta name="keywords" content="Zcash, All about Zcash, Zcash resources, Zcash guide, Zcash manual, Zcash tools, Zcash Explorers, Zcash explorer list, Zcash wallets, Zcash block, Zcash block time, Zcash Halving, Zcash countdown,">
     <link rel="shortcut icon" href="./img/faviocon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="./sheets/style.css">
+    <script src="./sheets/scriptData.js?v=<?=time()?" defer></script>
     <script src="./sheets/script.js?v=<?=time()?" defer></script>
 </head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMSRTEXQFT"></script>
@@ -20,24 +21,18 @@
 
   gtag('config', 'G-GMSRTEXQFT');
 </script>
-<div id="divInfo">
-    <div class="Xdiv">
-      <a href="javascript:void(0)" onclick="actionBtn()">&times;</a>
-    </div>
-</div>
+
 <body>
     <header>
         <div>
             <img src="./img/LogoUA.webp" alt="Logo" width="100">
         </div>
         <div>
-            <h1 id="big-timer"></h1>
+            <h1 id="txt-timer"></h1>
         </div>
     </header>
 
-    <a href="#" class="button" onclick="actionBtn()">Open</a>
-
-    <div>
+    <div id="links-grid">
         <section>
             <h2>Resources</h2>
             <ul>
@@ -134,6 +129,64 @@
             </ul>
         </section>
     </div>
+    <div id="stats">
+        <h2>Past halving event dates</h2>
+        <ul>
+            <li>The first halving event occurred on the 18th of November, 2020 (UTC) at block height <a href="https://zcashblockexplorer.com/blocks/1046400">1,046,400</a> and the reward per block went from 6.25 ZEC to 3.125 ZEC per block.</li>
+            <li>The second halving will take place on November, 2024 at block height 2,092,800 and the reward per block will go from 3.125 ZEC to 1.5625 ZEC per block.</li>
+            <li>The third halving will take place on November, 2028 at block height 2,092,800 and the reward per block will go from 1.5625 ZEC to 0.78125 ZEC per block.</li>
+        </ul>
+        <h2>Stats</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Price (USD):</td>
+                    <td>Soon</td>
+                </tr>
+                <tr>
+                    <td>Max supply:</td>
+                    <td>21.000.000</td>
+                </tr>
+                <tr>
+                    <td>Circulating supply:</td>
+                    <td>Soon</td>
+                </tr>
+                <tr>
+                    <td>Block generation time:</td>
+                    <td>~ 75 seconds</td>
+                </tr>
+                <tr>
+                    <td>Reward per block:</td>
+                    <td>3.125 ZEC</td>
+                </tr>
+                <tr>
+                    <td>Inflation rate per annum:</td>
+                    <td id="txt-inflation">???</td>
+                </tr>
+                <tr>
+                    <td>Current block:</td>
+                    <td id="txt-current-block">???</td>
+                </tr>
+                <tr>
+                    <td>Next halving at block:</td>
+                    <td>2726400</td>
+                </tr>
+                <tr>
+                    <td>Blocks until halving:</td>
+                    <td id="txt-to-halving">???</td>
+                </tr>
+                <tr>
+                    <td>Total number of halvings:</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Difficulty:</td>
+                    <td id="txt-difficulty">???</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <footer>
         <div><p>© 2023 Zlink</p></div>
         <div><p id="last-update">V. 0.2 (Beta)</p></div>
