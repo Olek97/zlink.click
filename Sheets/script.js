@@ -1,3 +1,4 @@
+// Site's last update date
 const xhr = new XMLHttpRequest();
 xhr.open("HEAD", window.location.href, true);
 xhr.onreadystatechange = () => {
@@ -8,6 +9,7 @@ xhr.onreadystatechange = () => {
 };
 xhr.send();
 
+// Clear user's cache after reload
 window.addEventListener("load", function () {
   document.querySelectorAll('link[rel="stylesheet"], img, script').forEach(function (el) {
     el.setAttribute("cache-control", "no-cache, no-store, must-revalidate");
@@ -16,11 +18,17 @@ window.addEventListener("load", function () {
   });
 });
 
+// Zcash's data
 const url = "https://api.blockchair.com/zcash/stats";
 
 const maxSupply = 21000000;
+const blockReward = 3.125;
 const blocksPerDay = 1152;
+const blocksPerYear = blocksPerDay * 365;
 const halvingBlock = 2726400;
+const newSupply = blocksPerYear * blockReward;
+const inflationRate = (newSupply / maxSupply) * 100;
+console.log(inflationRate.toFixed(2) + '%');
 
 fetch(url)
   .then((response) => response.json())
@@ -52,5 +60,15 @@ fetch(url)
     updateTimer();
   })
   .catch((error) => console.log(error));
+
+// Second level div Info
+const actionBtn = () => {
+  const nav = document.getElementById('divInfo');
+  if (nav.style.width > '1%') {
+      nav.style.width = '0';
+  } else {
+      nav.style.width = '100%';
+  }
+}
 
 
