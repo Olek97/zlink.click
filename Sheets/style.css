@@ -34,6 +34,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: white;
 }
 header > div {
   width: 100%;
@@ -49,6 +50,7 @@ header > div:first-child {
 body {
     margin: auto;
     padding: auto;
+    background-color: #f2f2f2;
 }
 
 #links-grid {
@@ -63,6 +65,11 @@ body {
     #links-grid {
         grid-template-columns: repeat(1, 1fr);
     }
+}
+
+#stats {
+  padding: 5px;
+  background-color: white;
 }
 
 /* Footer */

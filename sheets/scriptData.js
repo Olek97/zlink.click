@@ -1,7 +1,9 @@
-const innCurrentBlock = document.querySelector("#txt-current-block")
+const innPrice = document.querySelector("#txt-price");
+const innCurrentBlock = document.querySelector("#txt-current-block");
 const innToHalving = document.querySelector("#txt-to-halving");
+const innDailyZec = document.querySelector("#txt-daily-zec")
 const innInflation = document.querySelector("#txt-inflation");
-const innDifficulty = document.querySelector("#txt-difficulty")
+const innDifficulty = document.querySelector("#txt-difficulty");
 const innTimer = document.querySelector("#txt-timer");
 
 const url = "https://api.blockchair.com/zcash/stats";
@@ -11,8 +13,9 @@ const blockReward = 3.125;
 const blocksPerDay = 1152;
 const blocksPerYear = blocksPerDay * 365;
 const halvingBlock = 2726400;
-const newSupply = blocksPerYear * blockReward;
-const inflationRate = (newSupply / maxSupply) * 100;
+const dailyZec = blocksPerDay * blockReward;
+const yearlyZec = blocksPerYear * blockReward;
+const inflationRate = (yearlyZec / maxSupply) * 100;
 
 fetch(url)
   .then((response) => response.json())
@@ -33,11 +36,13 @@ fetch(url)
       let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, "0");
       let seconds = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, "0");
 
-      innTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s to halving.`;
+      innTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s to halving.`;    
+      innPrice.innerHTML = '$' + price;
+      innDailyZec.innerHTML = dailyZec.toLocaleString('en-US');
       innInflation.innerHTML = inflationRate.toFixed(2) + '%';
-      innToHalving.innerHTML = blocksToHalving;
-      innDifficulty.innerHTML = difficulty;
-      innCurrentBlock.innerHTML = blockHeight;
+      innToHalving.innerHTML = blocksToHalving.toLocaleString('en-US');
+      innDifficulty.innerHTML = difficulty.toLocaleString('en-US');
+      innCurrentBlock.innerHTML = blockHeight.toLocaleString('en-US');
 
       if (distance < 0) {
         clearInterval(x);
