@@ -5,6 +5,7 @@ const innDailyZec = document.querySelector("#txt-daily-zec")
 const innInflation = document.querySelector("#txt-inflation");
 const innDifficulty = document.querySelector("#txt-difficulty");
 const innTimer = document.querySelector("#txt-timer");
+const innTimeToHalving = document.querySelector("#txt-time-to-halving");
 
 const url = "https://api.blockchair.com/zcash/stats";
 
@@ -36,7 +37,8 @@ fetch(url)
       let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, "0");
       let seconds = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, "0");
 
-      innTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s to halving.`;    
+      innTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s to halving.`;
+      innTimeToHalving.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
       innPrice.innerHTML = '$' + price;
       innDailyZec.innerHTML = dailyZec.toLocaleString('en-US');
       innInflation.innerHTML = inflationRate.toFixed(2) + '%';
