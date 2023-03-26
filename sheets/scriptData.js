@@ -1,6 +1,7 @@
 const innPrice = document.querySelector("#txt-price");
 const innCurrentBlock = document.querySelector("#txt-current-block");
 const innToHalving = document.querySelector("#txt-to-halving");
+const innBlockReward = document.querySelector("#txt-block-reward")
 const innDailyZec = document.querySelector("#txt-daily-zec")
 const innInflation = document.querySelector("#txt-inflation");
 const innDifficulty = document.querySelector("#txt-difficulty");
@@ -40,7 +41,8 @@ fetch(url)
       innTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s to halving.`;
       innTimeToHalving.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
       innPrice.innerHTML = '$' + price;
-      innDailyZec.innerHTML = dailyZec.toLocaleString('en-US');
+      innBlockReward.innerHTML = blockReward.toLocaleString('en-US') + ' ZEC';
+      innDailyZec.innerHTML = dailyZec.toLocaleString('en-US') + ' ZEC';
       innInflation.innerHTML = inflationRate.toFixed(2) + '%';
       innToHalving.innerHTML = blocksToHalving.toLocaleString('en-US');
       innDifficulty.innerHTML = difficulty.toLocaleString('en-US');
