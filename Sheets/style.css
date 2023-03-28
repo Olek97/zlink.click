@@ -50,19 +50,18 @@ header > div:first-child {
 body {
     margin: auto;
     padding: auto;
-    background-color: #f2f2f2;
 }
 
-#links-grid {
+#links {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
 }
-#links-grid > section {
+#links > section {
     padding: 10px;
 }
 @media (max-width: 767px) {
-    #links-grid {
+    #links {
         grid-template-columns: repeat(1, 1fr);
     }
 }
@@ -83,12 +82,8 @@ footer > div {
     flex-basis: 50%;
     text-align: center;
 }
-footer > div:first-child,
-footer > div:last-child {
-  flex-basis: 25%; 
-}
-@media (max-width: 767px) {
-  footer > div:last-child {
-    flex-basis: 100%;
-  }
+footer div:last-of-type {
+  padding: 10px;
+  flex-basis: 100%;
+  overflow-x: scroll;
 }

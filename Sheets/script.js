@@ -15,12 +15,9 @@ xhr.onreadystatechange = () => {
 };
 xhr.send();
 
-// Clear user's cache after reload
-window.addEventListener("load", function () {
-  document.querySelectorAll('link[rel="stylesheet"], img, script').forEach(function (el) {
-    el.setAttribute("cache-control", "no-cache, no-store, must-revalidate");
-    el.setAttribute("pragma", "no-cache");
-    el.setAttribute("expires", "0");
-  });
-});
-
+// Footer copo address
+function copyAddr() {
+  const addr = document.querySelector("#copy-addr").innerText;
+  navigator.clipboard.writeText(addr);
+  alert("Address copied!");
+}
