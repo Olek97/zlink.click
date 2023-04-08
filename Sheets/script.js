@@ -19,5 +19,5 @@ xhr.send();
 function copyAddr() {
   const addr = document.querySelector("#copy-addr").innerText;
   navigator.clipboard.writeText(addr);
-  alert("Address copied!");
+  alert("Thank you!");
 }
