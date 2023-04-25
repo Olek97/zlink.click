@@ -1,4 +1,4 @@
-// Fuck firefox
+// Stop using Firefox :)
 const isFirefox = typeof InstallTrigger !== 'undefined';
 if (isFirefox) {
   alert("Browser unsupported.");

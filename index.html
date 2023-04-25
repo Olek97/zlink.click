@@ -9,7 +9,7 @@
     <meta name="description" content="Discover Zcash! Zlink is the simplest way to find any link, tool, information you need about Zcash's ecosystem.">
     <meta name="keywords" content="Zcash, All about Zcash, Zcash resources, Zcash guide, Zcash manual, Zcash tools, Zcash Explorer, Zcash explorer list, Zcash wallets, Zcash block, Zcash block time, Zcash Halving, Zcash countdown, Zcash info">
     <link rel="shortcut icon" href="./img/faviocon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="./sheets/styleV05.css">
+    <link rel="stylesheet" type="text/css" href="./sheets/styleV06.css">
 </head>
 
 <body>
@@ -43,7 +43,7 @@
                 </tr>
                 <tr>
                     <td>Circulating supply:</td>
-                    <td id="txt-circulating">13,632,589</td>
+                    <td id="txt-circulating">~ 13,650,000</td>
                 </tr>
                 <tr>
                     <td>Block generation time:</td>
@@ -66,16 +66,16 @@
                     <td id="txt-current-block">???</td>
                 </tr>
                 <tr>
-                    <td>Next halving block:</td>
+                    <td>Halving date:</td>
+                    <td id="txt-halving-date">???</td>
+                </tr>
+                <tr>
+                    <td>Halving block:</td>
                     <td>2,726,400</td>
                 </tr>
                 <tr>
                     <td>Blocks until halving:</td>
                     <td id="txt-to-halving">???</td>
-                </tr>
-                <tr>
-                    <td>Time until halving:</td>
-                    <td id="txt-time-to-halving">???</td>
                 </tr>
                 <tr>
                     <td>Total number of halvings:</td>
@@ -91,7 +91,7 @@
 
     <div id="links">
         <section>
-            <h2>Resources</h2>
+            <h2>Resources:</h2>
             <ul>
                 <li><a href="https://z.cash/" target="_blank">Zcash Website</a></li>
                 <li><a href="https://zcash.readthedocs.io/en/latest/" target="_blank">Zcash Documentation</a></li>
@@ -106,7 +106,7 @@
         </section>
 
         <section>
-            <h2>Explorers & Network Stats</h2>
+            <h2>Explorers & Network Stats:</h2>
             <ul>
                 <li><a href="https://zcashblockexplorer.com/" target="_blank">Zcash Block Explorer</a> <sub>by Nighthawk Apps</sub></li>
                 <li><a href="https://blockchair.com/zcash" target="_blank">Blockchair</a></li>
@@ -120,7 +120,7 @@
         </section>
         
         <section>
-            <h2>Wallets</h2>
+            <h2>Wallets:</h2>
             <ul>
                 <li><a href="https://electriccoin.co/zcashd/" target="_blank">Zcashd</a> <sub>#T&Z #CLI #FullNode #Linux</sub></li>
                 <li><a href="https://zecwallet.co/" target="_blank">Zecwallet</a> <sub>#T&Z #GUI #CLI #FullNode #LightWallet #PaperWallet #Windows #MacOS #Linux #Android #IOS</sub></li>
@@ -135,28 +135,37 @@
                 <li><a href="https://edge.app/" target="_blank">Edge</a> <sub>(Outdated) #Z #LightWallet #Android #IOS</sub></li>
                 <li><a href="https://metalpay.com/" target="_blank">MetalPay</a> <sub>#T #LightWallet #Android #IOS</sub></li>
             </ul>
-            
         </section>
         
         <section>
-            <h2>Exchanges</h2>
+            <h2>Exchanges:</h2>
             <p>You can find all exchanges by clicking <a href="https://coinmarketcap.com/currencies/zcash/markets/" target="_blank">Here</a>.</p>
+        </section>
 
-            <h2>Exchanges (No KYC)</h2>
-            <ul>
-                <li><a href="https://www.kucoin.com/ucenter/signup?rcode=E2VV5Q" target="_blank">KuCoin</a> <sub>1 BTC /day withdrawal limit #CEX</sub></li>
-                <li><a href="https://www.coinex.com/register?refer_code=dhequ" target="_blank">CoinEx</a> <sub>10K $ /day withdrawal limit #CEX</sub></li>
-                <li><a href="https://ascendex.com/en-us/register?inviteCode=NUPEIMLHA5P5R" target="_blank">AscendEx</a> <sub>2 BTC /day withdrawal limit #CEX</sub></li>
-                <li><a href="https://changelly.com/" target="_blank">Changelly</a> <sub>#Swap</sub></li>
-                <li><a href="https://changenow.io/?from=usdterc20&to=zec" target="_blank">ChangeNow</a> <sub>#Swap</sub></li>
-                <li><a href="https://sideshift.ai/usdcpolygon/zec" target="_blank">SideShift</a> <sub>#Swap</sub></li>
-                <li><a href="https://flyp.me/" target="_blank">Flyp</a> <sub>#Swap</sub></li>
-                <li><a href="https://safe.trade/" target="_blank">SafeTrade</a> <sub>#Email and 2FA only</sub></li>
-            </ul>
+        <h2 style="width: 100%;">No KYC Exchanges:</h2>
+        <section>
+        <h3>CEX</h3>
+        <ul>
+            <li><a href="https://www.kucoin.com/ucenter/signup?rcode=E2VV5Q" target="_blank">KuCoin</a> <sub>BTC /day withdrawal limit</sub></li>
+            <li><a href="https://www.coinex.com/register?refer_code=dhequ" target="_blank">CoinEx</a> <sub>10K $ /day withdrawal limit</sub></li>
+            <li><a href="https://ascendex.com/en-us/register?inviteCode=NUPEIMLHA5P5R" target="_blank">AscendEx</a> <sub>2 BTC /day withdrawal limit #CEX</sub></li>
+            <li><a href="https://safe.trade/" target="_blank">SafeTrade</a></li>
+        </ul>
         </section>
 
         <section>
-            <h2>Faucets</h2>
+            <h3>DEX / Swap</h3>
+            <ul>
+                <li><a href="https://changelly.com/" target="_blank">Changelly</a> <sub>#Swap</sub></li>
+                <li><a href="https://changenow.io/?from=usdterc20&to=zec" target="_blank">ChangeNow</a> <sub>#Swap</sub></li>
+                <li><a href="https://app.atomicdex.io/#/dex" target="_blank">AtomicDEX</a> <sub>#Swap</sub></li>
+                <li><a href="https://sideshift.ai/usdcpolygon/zec" target="_blank">SideShift</a> <sub>#Swap</sub></li>
+                <li><a href="https://flyp.me/" target="_blank">Flyp</a> <sub>#Swap</sub></li>
+            </ul>
+        </section>
+            
+        <section>
+            <h2>Faucets:</h2>
             <p>Step 1: Register on <a href="https://faucetpay.io/?r=5244148" target="_blank">FaucetPay</a></p>
             <P>Step 2: Create your ZEC Wallet in your "Dashboard".</P>
             <p>Enjoy with links below!</p>
@@ -168,7 +177,7 @@
         </section>
         
         <section>
-            <h2>Projects</h2>
+            <h2>Projects:</h2>
             <ul>
                 <li><a href="https://www.zechub.xyz/" target="_blank">ZecHub</a> <sub>Wiki</sub></li>
                 <li><a href="https://zecpages.com/" target="_blank">ZECpages</a> <sub>Social network</sub></li>
@@ -181,7 +190,7 @@
         </section>
 
         <section>
-            <h2>Socials</h2>
+            <h2>Socials:</h2>
             <ul>
                 <li><a href="https://twitter.com/zcash" target="_blank">Twitter</a> <sub>#Social</sub></li>
                 <li><a href="https://www.youtube.com/c/ZcashMedia" target="_blank">YouTube</a> <sub>#Social</sub></li>
@@ -200,7 +209,7 @@
 
     <footer>
         <div><p>© 2023 Zlink</p></div>
-        <div><p id="last-update">V. 0.5</p></div>
+        <div><p id="last-update">V. 0.6</p></div>
         <div>
             <a id="copy-addr" href="#copy-addr" onclick="copyAddr()">zs15vhcz22u33q9cxt2ncssrdtcxu655t8eh7mdxxhxacalzr8nkvc6l777ynj2jec608h4wn0zwgw</a>
             <p>MIT License</p>
@@ -208,8 +217,8 @@
         </div>
     </footer>
     
-    <script src="./sheets/scriptDataV05.js"></script>
-    <script src="./sheets/scriptV05.js"></script>
+    <script src="./sheets/scriptDataV06.js"></script>
+    <script src="./sheets/scriptV06.js"></script>
 </body>
 
 </html>

@@ -50,26 +50,25 @@ header > div:first-child {
 /* Body */
 body {
     margin: auto;
-    padding: auto;
+    padding: 10px auto 10px auto;
 }
-
-#links {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-}
-#links > section {
-    padding: 10px;
-}
-@media (max-width: 767px) {
-    #links {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-
 #stats {
   padding: 5px;
   background-color: white;
+}
+#links {
+  display: flex;
+  padding: 5px;
+  flex-wrap: wrap;
+}
+section {
+  width: 50%;
+  box-sizing: border-box;
+}
+@media (max-width: 767px) {
+  section {
+    width: 100%;
+  }
 }
 
 /* Footer */

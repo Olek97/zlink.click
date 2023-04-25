@@ -6,7 +6,7 @@ const innDailyZec = document.querySelector("#txt-daily-zec")
 const innInflation = document.querySelector("#txt-inflation");
 const innDifficulty = document.querySelector("#txt-difficulty");
 const innTimer = document.querySelector("#txt-timer");
-const innTimeToHalving = document.querySelector("#txt-time-to-halving");
+const innHalvingDate = document.querySelector("#txt-halving-date");
 
 const url = "https://api.blockchair.com/zcash/stats";
 
@@ -27,9 +27,9 @@ fetch(url)
     const difficulty = data.data.difficulty;
     const blocksToHalving = halvingBlock - blockHeight;
     
-    const timeToHalving = blocksToHalving * 75;
-    const countDownDate = new Date().getTime() + (timeToHalving * 1000);
-    
+    const secsToHalving = blocksToHalving * 75;
+    const countDownDate = new Date().getTime() + (secsToHalving * 1000);
+      
     function updateData() {
       let now = new Date().getTime();
       let distance = countDownDate - now;
@@ -39,7 +39,7 @@ fetch(url)
       let seconds = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, "0");
 
       innTimer.innerHTML = `Next halving in: <br> ${days}d ${hours}h ${minutes}m ${seconds}s`;
-      innTimeToHalving.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      innHalvingDate.innerHTML = (new Date(countDownDate)).toDateString();
       innPrice.innerHTML = '$' + price;
       innBlockReward.innerHTML = blockReward.toLocaleString('en-US') + ' ZEC';
       innDailyZec.innerHTML = dailyZec.toLocaleString('en-US') + ' ZEC';
@@ -48,7 +48,7 @@ fetch(url)
       innDifficulty.innerHTML = difficulty.toLocaleString('en-US');
       innCurrentBlock.innerHTML = blockHeight.toLocaleString('en-US');
 
-      if (distance < 0) {
+      if (distance <= 0) {
         clearInterval(x);
         innTimer.innerHTML = "Remember to @Olek97 on telegram to update the countdown.";
       } else {
