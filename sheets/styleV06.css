@@ -4,8 +4,8 @@
 }
 
 sub {
-    padding: 1px;
-    font-style: italic;
+  padding: 1px;
+  font-style: italic;
 }
 
 table {
@@ -14,12 +14,15 @@ table {
   width: 100%;
 }
 
-table td, table th {
+table td,
+table th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-table tr:nth-child(even){background-color: #f2f2f2;}
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
 table th {
   color: white;
@@ -29,26 +32,24 @@ table th {
   background-color: #04AA6D;
 }
 
-/* General functions */
+/* Collapse */
 .collapsible {
-  cursor: pointer;
-  padding: 18px;
   width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
+  margin: 4px;
+  border: solid 1px black;
+  margin: 4px auto 4px auto;
+  cursor: pointer;
+  text-align: center;
 }
 
-.active, .collapsible:hover {
-  background-color: #756868;
+.collapsible:hover {
+  background-color: #00000025;
 }
 
 .content {
   padding: 0 18px;
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
 }
 
 /* Header */
@@ -60,51 +61,37 @@ header {
   align-items: center;
   background-color: white;
 }
+
 header > div {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 header > div:first-child {
   margin-top: 10px;
 }
 
 /* Body */
 body {
-    margin: auto;
-    padding: 10px auto 10px auto;
-}
-#stats {
-  padding: 5px;
-  background-color: white;
-}
-#links {
-  display: flex;
-  padding: 5px;
-  flex-wrap: wrap;
-}
-section {
-  width: 50%;
-  box-sizing: border-box;
-}
-@media (max-width: 767px) {
-  section {
-    width: 100%;
-  }
+  margin: auto;
+  padding: 10px 5px 10px 5px;
 }
 
 /* Footer */
 footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    border-top: solid 10px black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-top: solid 10px black;
 }
+
 footer > div {
-    flex-basis: 50%;
-    text-align: center;
+  flex-basis: 50%;
+  text-align: center;
 }
+
 footer div:last-of-type {
   padding: 10px;
   flex-basis: 100%;
