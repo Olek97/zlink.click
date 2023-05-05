@@ -4,6 +4,13 @@ if (isFirefox) {
   alert("Browser unsupported.");
 }
 
+// Footer copy address
+function copyAddr() {
+  const addr = document.querySelector("#copy-addr").innerText;
+  navigator.clipboard.writeText(addr);
+  alert("Thank you!");
+}
+
 // Site's last update date
 const xhr = new XMLHttpRequest();
 xhr.open("HEAD", window.location.href, true);
