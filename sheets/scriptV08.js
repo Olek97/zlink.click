@@ -8,7 +8,7 @@ if (isFirefox) {
 function copyAddr() {
   const addr = document.querySelector("#copy-addr").innerText;
   navigator.clipboard.writeText(addr);
-  alert("Thank you!");
+  alert("Copied, thank you!");
 }
 
 // Site's last update date
@@ -19,7 +19,7 @@ xhr.onreadystatechange = () => {
     const lastModified = new Date(xhr.getResponseHeader("Last-Modified"));
     document.getElementById("last-update").innerHTML = `Site updated on ${lastModified.toLocaleDateString()}`;
   }
-};
+}
 xhr.send();
 
 // Collapse
