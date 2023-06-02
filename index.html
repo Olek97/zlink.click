@@ -1,98 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMSRTEXQFT"></script>
+        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-GMSRTEXQFT');</script>
         <title>Zlink</title>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Discover Zcash! Zlink is the simplest way to find any link, tool, information you need about Zcash's ecosystem." />
-        <meta
-            name="keywords"
-            content="Zcash, All about Zcash, Zcash resources, Zcash guide, Zcash manual, Zcash tools, Zcash Explorer, Zcash explorer list, Zcash wallets, Zcash block, Zcash block time, Zcash Halving, Zcash countdown, Zcash info"
-        />
-        <link rel="shortcut icon" href="./img/faviocon.ico" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="./sheets/styleV08.css" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="Discover Zcash! Zlink is the simplest way to find any link, tool, information you need about Zcash's ecosystem."/>
+        <meta name="keywords" content="Zcash, What is Zcash?, Zcash info, Zcash guide, About Zcash, Zcash resources, Zcash manual, Zcash tools, Zcash explorers, Zcash wallet, Zcash block, Zcash halving, Zcash countdown"/>
+        <link rel="shortcut icon" href="./img/faviocon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" type="text/css" href="./sheets/styleV09.css"/>
     </head>
 
     <body>
+        <noscript>
+            <p>Your browser does not support JavaScript or you have it disabled. Some features may not be available.</p>
+        </noscript>
         <header>
             <div>
-                <img src="./img/LogoUA.webp" alt="Logo" width="100" />
-            </div>
-            <div>
-                <h1 id="txt-timer"></h1>
+                <img src="./img/LogoUA.webp" alt="Logo" width="100">
             </div>
         </header>
 
-        <div id="stats">
-            <h2>Past halving event dates</h2>
-            <ul>
-                <li>
-                    The first halving event occurred on the 18th of November, 2020 (UTC) at block height <a href="https://zcashblockexplorer.com/blocks/1046400" target="_blank">1,046,400</a> and the reward per block went from 6.25 ZEC to
-                    3.125 ZEC per block.
-                </li>
-                <li>The next Zcash halving is expected to occour in November 2024 at block height 2,092,800 and the block reward will fall from 3.125 ZEC to 1.5625 ZEC per block.</li>
-                <li>The 3rd halving is expected to occour in November 2028 at block height 3,139,200 and the block reward will fall from 1.5625 ZEC to 0.78125 ZEC per block.</li>
-                <li>The 4th halving is expected to occour in November 2032 at block height 4,185,600 and the block reward will fall from 0.78125 to 0.390625 ZEC per block.</li>
-            </ul>
-
-            <h2>Stats</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>Price (USD):</td>
-                        <td id="txt-price">???</td>
-                    </tr>
-                    <tr>
-                        <td>Max supply:</td>
-                        <td>21,000,000</td>
-                    </tr>
-                    <tr>
-                        <td>Circulating supply:</td>
-                        <td id="txt-circulating">~ 13,650,000</td>
-                    </tr>
-                    <tr>
-                        <td>Block generation time:</td>
-                        <td>~ 75 seconds</td>
-                    </tr>
-                    <tr>
-                        <td>Reward per block:</td>
-                        <td id="txt-block-reward">3.125 ZEC</td>
-                    </tr>
-                    <tr>
-                        <td>Rewards per day:</td>
-                        <td id="txt-daily-zec">???</td>
-                    </tr>
-                    <tr>
-                        <td>Inflation rate per annum:</td>
-                        <td id="txt-inflation">???</td>
-                    </tr>
-                    <tr>
-                        <td>Current block:</td>
-                        <td id="txt-current-block">???</td>
-                    </tr>
-                    <tr>
-                        <td>Halving date:</td>
-                        <td id="txt-halving-date">???</td>
-                    </tr>
-                    <tr>
-                        <td>Halving block:</td>
-                        <td>2,726,400</td>
-                    </tr>
-                    <tr>
-                        <td>Blocks until halving:</td>
-                        <td id="txt-to-halving">???</td>
-                    </tr>
-                    <tr>
-                        <td>Total number of halvings:</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>Difficulty:</td>
-                        <td id="txt-difficulty">???</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div id="halving-stats">
+            <h2>Halving progress</h2>
+            <div id="progress-box">
+                <div id="progress">
+                  <div id="progress-label"></div>
+                </div>
+            </div>
+            <h2 id="txt-timer"></h2>
         </div>
 
         <div id="links">
@@ -104,12 +42,14 @@
                     <li><a href="https://z.cash/" target="_blank">Zcash Website</a></li>
                     <li><a href="https://zcash.readthedocs.io/en/latest/" target="_blank">Zcash Documentation</a></li>
                     <li><a href="https://github.com/zcash/zcash" target="_blank">Zcash GitHub</a></li>
+                    <li><a href="https://z.cash/upgrade/" target="_blank">Network Updates</a></li>
                     <li><a href="https://zips.z.cash/" target="_blank">Zcash Improvment Proposals</a></li>
                     <li><a href="https://z.cash/support/faq/" target="_blank">Frequently Asked Questions</a></li>
                     <li><a href="https://electriccoin.co/" target="_blank">Electric Coin Company</a></li>
                     <li><a href="https://zfnd.org/" target="_blank">Zcash Foundation</a></li>
                     <li><a href="https://zcashcommunitygrants.org/" target="_blank">Zcash Community Garants</a></li>
                     <li><a href="https://electriccoin.co/blog/" target="_blank">News</a></li>
+                    <li><a href="https://zecsec.com/" target="_blank">ZecSec</a></li>
                 </ul>
             </div>
 
@@ -121,6 +61,7 @@
                     <li><a href="https://zcashblockexplorer.com/" target="_blank">Zcash Block Explorer</a> <sub>by Nighthawk Apps</sub></li>
                     <li><a href="https://blockchair.com/zcash" target="_blank">Blockchair</a></li>
                     <li><a href="https://zecblockexplorer.com/" target="_blank">Zec Block Explorer</a> <sub>by Blockbook</sub></li>
+                    <li><a href="https://blockexplorer.one/zcash/mainnet" target="_blank">BlockExplorer.one</a></li>
                     <li><a href="https://zcash.tokenview.io/" target="_blank">Tokenview</a></li>
                     <li><a href="https://bitinfocharts.com/zcash/" target="_blank">BitInfoCharts</a></li>
                     <li><a href="https://3xpl.com/zcash" target="_blank">3xpl</a></li>
@@ -134,20 +75,35 @@
             </div>
             <div class="content">
                 <ul>
-                    <li><a href="https://electriccoin.co/zcashd/" target="_blank">Zcashd</a> <sub>#T&Z #CLI #FullNode #Linux</sub></li>
-                    <li><a href="https://zecwallet.co/" target="_blank">Zecwallet</a> <sub>#T&Z #GUI #CLI #FullNode #LightWallet #PaperWallet #Windows #MacOS #Linux #Android #IOS</sub></li>
-                    <li><a href="https://ywallet.app/" target="_blank">Ywallet</a> <sub>#T&Z #Windows #MacOS #Linux #Android #IOS</sub></li>
-                    <li><a href="https://nighthawkwallet.com/" target="_blank">Nighthawk</a> <sub>#T&Z #Android #IOS</sub></li>
-                    <li><a href="https://unstoppable.money/" target="_blank">Unstoppable Wallet</a> <sub>#T&Z #Android #IOS</sub></li>
-                    <li><a href="https://trustwallet.com/" target="_blank">Trust Wallet</a> <sub>#T #LightWallet #MacOS #Android #IOS</sub></li>
-                    <li><a href="https://atomicwallet.io/zcash-wallet" target="_blank">Atomic Wallet</a> <sub>#T #LightWallet #Windows #MacOS #Linux #Android #IOS</sub></li>
-                    <li><a href="https://exodus.com/zcash-wallet-zec" target="_blank">Exodus</a> <sub>#T #LightWallet #Windows #MacOS #Linux #Android #IOS</sub></li>
-                    <li><a href="https://guarda.com/" target="_blank">Guarda</a> <sub>#T #LightWallet #Windows #MacOS #Linux #Android #IOS #Web #Hardware</sub></li>
-                    <li><a href="https://coinomi.com/" target="_blank">Coinomi</a> <sub>#T #LightWallet #Android #IOS</sub></li>
-                    <li><a href="https://cobo.com/" target="_blank">Cobo</a> <sub>#T #LightWallet #Android #IOS</sub></li>
-                    <li><a href="https://edge.app/" target="_blank">Edge</a> <sub>(Outdated) #Z #LightWallet #Android #IOS</sub></li>
-                    <li><a href="https://metalpay.com/" target="_blank">MetalPay</a> <sub>#T #LightWallet #Android #IOS</sub></li>
+                    <li><a href="https://electriccoin.co/zcashd/" target="_blank">Zcashd</a> <sub>#T #Z #F #Linux</sub></li>
+                    <li><a href="https://zecwallet.co/" target="_blank">Zecwallet</a> <sub>#T #Z #Windows #MacOS #Linux #Android #IOS #PaperWallet</sub></li>
+                    <li><a href="https://ywallet.app/" target="_blank">Ywallet</a> <sub>#T #Z #H #Windows #MacOS #Linux #Android #IOS</sub></li>
+                    <li><a href="https://nighthawkwallet.com/" target="_blank">Nighthawk</a> <sub>#T #Z #H #Android #IOS</sub></li>
+                    <li><a href="https://unstoppable.money/" target="_blank">Unstoppable Wallet</a> <sub>#Z #H #Android #IOS</sub></li>
+                    <li><a href="https://trustwallet.com/" target="_blank">Trust Wallet</a> <sub>#T #MacOS #L #Android #IOS</sub></li>
+                    <li><a href="https://atomicwallet.io/zcash-wallet" target="_blank">Atomic Wallet</a> <sub>#T #L #Windows #MacOS #Linux #Android #IOS</sub></li>
+                    <li><a href="https://exodus.com/zcash-wallet-zec" target="_blank">Exodus</a> <sub>#T #L #Windows #MacOS #Linux #Android #IOS</sub></li>
+                    <li><a href="https://guarda.com/" target="_blank">Guarda</a> <sub>#T #L #Windows #MacOS #Linux #Android #IOS #Web #Hardware</sub></li>
+                    <li><a href="https://coinomi.com/" target="_blank">Coinomi</a> <sub>#T #L #Android #IOS</sub></li>
+                    <li><a href="https://cobo.com/" target="_blank">Cobo</a> <sub>#T #L #Android #IOS</sub></li>
+                    <li><a href="https://edge.app/" target="_blank">Edge</a> <sub>(Outdated) #Z #L #Android #IOS</sub></li>
+                    <li><a href="https://metalpay.com/" target="_blank">MetalPay</a> <sub>#T #L #Android #IOS</sub></li>
                 </ul>
+                <i>#T = transparent | #Z = shielded | #L = Light Wallet | #H = Hybrid Full Node Wallet | #F = Full Node</i>
+            </div>
+
+            <div class="collapsible">
+                <h2>Mining pools</h2>
+            </div>
+            <div class="content">
+                <ul>
+                    <li><a href="https://www.antpool.com/home">Antpool</a></li>
+                    <li><a href="https://luxor.tech/mining">Luxor</a></li>
+                    <li><a href="https://www.f2pool.com/">F2Pool</a></li>
+                    <li><a href="https://www.poolin.com/">Poolin</a></li>
+                    <li><a href="https://www.viabtc.com/">ViaBTC</a></li>
+                </ul>
+                <p>Full list <a href="https://miningpoolstats.stream/zcash" target="_blank">here</a>.</p>
             </div>
 
             <div class="collapsible">
@@ -163,10 +119,10 @@
             <div class="content">
                 <h3>CEX</h3>
                 <ul>
-                    <li><a href="https://www.kucoin.com/ucenter/signup?rcode=E2VV5Q" target="_blank">KuCoin</a> <sub>BTC /day withdrawal limit</sub></li>
-                    <li><a href="https://www.coinex.com/register?refer_code=dhequ" target="_blank">CoinEx</a> <sub>10K $ /day withdrawal limit</sub></li>
+                    <li><a href="https://www.kucoin.com/" target="_blank">KuCoin</a> <sub>BTC /day withdrawal limit</sub></li>
+                    <li><a href="https://www.coinex.com/" target="_blank">CoinEx</a> <sub>10K $ /day withdrawal limit</sub></li>
                     <li>
-                        <a href="https://ascendex.com/en-us/register?inviteCode=NUPEIMLHA5P5R" target="_blank">AscendEx</a>
+                        <a href="https://ascendex.com/" target="_blank">AscendEx</a>
                         <sub>2 BTC /day withdrawal limit</sub>
                     </li>
                     <li><a href="https://safe.trade/" target="_blank">SafeTrade</a></li>
@@ -223,11 +179,11 @@
                 <h3>International</h3>
                 <ul>
                     <li><a href="https://forum.zcashcommunity.com/" target="_blank">Forum</a></li>
-                    <li><a href="https://twitter.com/zcash" target="_blank">Twitter</a> <sub>#Social</sub></li>
-                    <li><a href="https://www.youtube.com/c/ZcashMedia" target="_blank">YouTube</a> <sub>#Social</sub></li>
-                    <li><a href="https://t.me/Zcash_Community" target="_blank">Telegram</a> <sub>#Community</sub></li>
-                    <li><a href="https://discord.com/channels/669694001464737815/669694001921654794" target="_blank">Discord</a> <sub>#Community</sub></li>
-                    <li><a href="https://www.reddit.com/r/zec/" target="_blank">Reddit</a> <sub>#Forum</sub></li>
+                    <li><a href="https://discord.com/channels/669694001464737815/669694001921654794" target="_blank">Discord</a></li>
+                    <li><a href="https://t.me/Zcash_Community" target="_blank">Telegram</a></li>
+                    <li><a href="https://twitter.com/zcash" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.reddit.com/r/zec/" target="_blank">Reddit</a></li>
+                    <li><a href="https://www.youtube.com/c/ZcashMedia" target="_blank">YouTube</a></li>
                     <li><a href="https://bitcointalk.org/index.php?topic=1626185.0" target="_blank">Bitcointalk</a></li>
                 </ul>
                 <h3>Africa</h3>
@@ -237,8 +193,8 @@
                 </ul>
                 <h3>Arabic</h3>
                 <ul>
-                    <li><a href="https://twitter.com/ZozNotorious" target="_blank">Twitter</a></li>
                     <li><a href="https://t.me/ZcashArabic" target="_blank">Telegram</a></li>
+                    <li><a href="https://twitter.com/ZozNotorious" target="_blank">Twitter</a></li>
                 </ul>
                 <h3>Canada</h3>
                 <ul>
@@ -250,9 +206,9 @@
                 </ul>
                 <h3>Italian</h3>
                 <ul>
+                    <li><a href="https://www.facebook.com/groups/zecitalia" target="_blank">Facebook</a></li>
                     <li><a href="https://t.me/zcashita" target="_blank">Telegram</a></li>
                     <li><a href="https://twitter.com/InsideZcash" target="_blank">Twitter</a></li>
-                    <li><a href="https://www.facebook.com/groups/zecitalia" target="_blank">Facebook</a></li>
                 </ul>
                 <h3>Indonesian</h3>
                 <ul>
@@ -268,20 +224,21 @@
                 </ul>
                 <h3>Portuguese</h3>
                 <ul>
-                    <li><a href="https://twitter.com/zcashbrazil" target="_blank">Twitter (Brazil)</a></li>
                     <li><a href="https://t.me/brzcash" target="_blank">Telegram (Brazil)</a></li>
+                    <li><a href="https://twitter.com/zcashbrazil" target="_blank">Twitter (Brazil)</a></li>
                 </ul>
                 <h3>Russian</h3>
                 <ul>
                     <li><a href="https://prozcash.ru/" target="_blank">Blog</a></li>
-                    <li><a href="https://twitter.com/RuZcash" target="_blank">Twitter</a></li>
                     <li><a href="https://t.me/zcash1000" target="_blank">Telegram</a></li>
+                    <li><a href="https://twitter.com/RuZcash" target="_blank">Twitter</a></li>
                 </ul>
                 <h3>Spanish</h3>
                 <ul>
                     <li><a href="https://zcashesp.com/" target="_blank">Blog</a></li>
-                    <li><a href="https://twitter.com/zcashesp" target="_blank">Twitter</a></li>
                     <li><a href="https://t.me/zcashespchat" target="_blank">Telegram</a></li>
+                    <li><a href="https://twitter.com/zcashesp" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.youtube.com/@zcashesp/" target="_blank">YouTube</a></li>
                 </ul>
             </div>
             
@@ -296,20 +253,124 @@
             </div>
         </div>
 
+        <div class="collapsible">
+            <h2>Zooko tracker</h2>
+        </div>
+        <div class="content">
+            <ul>
+                <li><a href="" target="_blank"></a> <sub></sub></li>
+                <li><a href="https://www.youtube.com/watch?v=M7CMU5OMEgE" target="_blank">Zooko Wilcox: Zcash - An Open Financial System With Privacy</a> <sub>03/15/2016</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=PCW2EaBjVPs" target="_blank">Zcash + Ethereum = ❤</a> <sub>10/23/2016</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=F92QSYIpSCk" target="_blank">Zooko Wilcox on the History of Privacy on the Internet</a> <sub>09/06/2018</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=z-ANEFMahyw" target="_blank">Zooko Wilcox, Privacy for Everyone at Devcon4 Devcon4 conference in Prague</a> <sub>11/29/2018</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=TFL5LGO3tUE" target="_blank">Privacy for Everyone by Zooko Wilcox (Devcon4)</a> <sub>12/11/2018</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=t3tc_-9PQr8" target="_blank">Finance and Crypto | Zooko Explaining Cryptography and why Zcash is better than Bitcoin</a> <sub>12/07/2018</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=hwk6NoMHiSo" target="_blank">Crypto Bites: Chat with Zooko Wilcox</a> <sub>01/07/2019</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=seE-_jtg688" target="_blank">Interview by Olivia Goldschmidt</a> <sub>01/29/2019</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=d0wASNrdlhg" target="_blank">Privacy and Zcash with Zooko Wilcox</a> <sub>02/05/2019</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=aR-r6q0d6BE" target="_blank">Zooko Wilcox: The Technologist</a> <sub>04/24/2019</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=QtJVHf40HOE" target="_blank">ZKPodcast: Zooko talks Zcash</a> <sub>04/28/2019</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=LrcA4vh_uxM" target="_blank">State of Electric Coin Company - Zooko Wilcox</a> <sub>06/25/2019</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=Ltucu8tsfbk" target="_blank">The Interview - Crypto | Featuring Zooko Wilcox-O’Hearn and Thomas Walton-Pocock</a> <sub>04/28/2021</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=8HTeSQny0EY" target="_blank">SNB CIF Conference 2022 - Excerpt of Keynote Lecture by Zooko Wilcox</a> <sub>06/03/2021</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=5MNPMfbTeXI" target="_blank">ZCash and the Future of Web 3.0, FULL EPISODE, with Zooko Wilcox, CEO of Electric Coin Company</a> <sub>06/25/2021</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=zL7tmTFlt9I" target="_blank">ZCash and Privacy | Vision Weekend US 2021</a> <sub>01/19/2022</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=t62isi58XcQ" target="_blank">Fireside Chat with Zooko - Zooko Wilcox O'Hearn</a> <sub>02/13/2022</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=AjC9T938o3Q" target="_blank">Zooko on privacy and crypto history</a> <sub>07/29/2022</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=WXXVoK92zN8" target="_blank">Shielded Transactions | Bitcoin's Privacy Problem (with Zooko Wilcox)</a> <sub>09/03/2022</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=trHkWQJhBcA" target="_blank">Crypto Wars 2.0 with Zooko</a> <sub>09/05/2022</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=fYO554IgIiM" target="_blank">Zooko and Vitalik in Conversation - Messari Mainnet 2022</a> <sub>10/04/2022</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=HeavuGDw0AQ" target="_blank">Zooko Wilcox on Digital Privacy, Future of Zcash</a> <sub>12/09/2022</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=mjXVeC2qZy8" target="_blank">Twitter Space with Zooko: ECC restructure</a> <sub>05/26/2023</sub></li>
+                <li><a href="https://www.youtube.com/watch?v=VZeM7bvWWPg" target="_blank">Zcash Podcast 6 with Zooko Wilcox: Governance and Zcash's Path Ahead</a> <sub>05/26/2023</sub></li>
+            </ul>
+        </div>
+
+        <div id="stats">
+            <h2>Past halving event dates</h2>
+            <ul>
+                <li>
+                    The first halving event occurred on the 18th of November, 2020 (UTC) at block height <a href="https://zcashblockexplorer.com/blocks/1046400" target="_blank">1,046,400</a> and the reward per block went from 6.25 ZEC to
+                    3.125 ZEC per block.
+                </li>
+                <li>The next Zcash halving is expected to occour in November 2024 at block height 2,092,800 and the block reward will fall from 3.125 ZEC to 1.5625 ZEC per block.</li>
+                <li>The 3rd halving is expected to occour in November 2028 at block height 3,139,200 and the block reward will fall from 1.5625 ZEC to 0.78125 ZEC per block.</li>
+                <li>The 4th halving is expected to occour in November 2032 at block height 4,185,600 and the block reward will fall from 0.78125 to 0.390625 ZEC per block.</li>
+            </ul>
+
+            <h2>Stats</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Price (USD):</td>
+                        <td id="txt-price">???</td>
+                    </tr>
+                    <tr>
+                        <td>Max supply:</td>
+                        <td>21,000,000 ZEC</td>
+                    </tr>
+                    <tr>
+                        <td>Circulating supply:</td>
+                        <td id="txt-circulating">~ 13,900,000 ZEC</td>
+                    </tr>
+                    <tr>
+                        <td>Block generation time:</td>
+                        <td>~ 75 seconds</td>
+                    </tr>
+                    <tr>
+                        <td>Reward per block:</td>
+                        <td id="txt-block-reward">3.125 ZEC</td>
+                    </tr>
+                    <tr>
+                        <td>Rewards per day:</td>
+                        <td id="txt-daily-zec">???</td>
+                    </tr>
+                    <tr>
+                        <td>Inflation rate per annum:</td>
+                        <td id="txt-inflation">???</td>
+                    </tr>
+                    <tr>
+                        <td>Current block:</td>
+                        <td id="txt-current-block">???</td>
+                    </tr>
+                    <tr>
+                        <td>Halving date:</td>
+                        <td id="txt-halving-date">???</td>
+                    </tr>
+                    <tr>
+                        <td>Halving block:</td>
+                        <td>2,726,400</td>
+                    </tr>
+                    <tr>
+                        <td>Blocks until halving:</td>
+                        <td id="txt-to-halving">???</td>
+                    </tr>
+                    <tr>
+                        <td>Total number of halvings:</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Difficulty:</td>
+                        <td id="txt-difficulty">???</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <footer>
             <div>
                 <p>© 2023 Zlink</p>
             </div>
             <div>
-                <p id="last-update">V. 0.7</p>
+                <p id="last-update">V. 0.9</p>
             </div>
             <div>
                 <a id="copy-addr" href="#copy-addr" onclick="copyAddr()">zs15vhcz22u33q9cxt2ncssrdtcxu655t8eh7mdxxhxacalzr8nkvc6l777ynj2jec608h4wn0zwgw</a>
                 <p>MIT License</p>
-                <p><a href="https://github.com/Olek97/zlink.click" target="_blank">Fork or contribute here</a> :)</p>
+                <p>Fork or contribute <a href="https://github.com/Olek97/zlink.click" target="_blank">here</a> :)</p>
             </div>
         </footer>
-        <script src="./sheets/scriptDataV08.js"></script>
-        <script src="./sheets/scriptV08.js"></script>
+        <script src="./sheets/scriptDataV09.js"></script>
+        <script src="./sheets/scriptV09.js"></script>
     </body>
 </html>

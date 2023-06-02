@@ -14,7 +14,8 @@ const maxSupply = 21000000;
 const blockReward = 3.125;
 const blocksPerDay = 1152;
 const blocksPerYear = blocksPerDay * 365;
-const halvingBlock = 2726400;
+const previousHalvingBlock = 1046400;
+const nextHalvingBlock = 2726400;
 const dailyZec = blocksPerDay * blockReward;
 const yearlyZec = blocksPerYear * blockReward;
 const inflationRate = (yearlyZec / maxSupply) * 100;
@@ -23,9 +24,9 @@ fetch(url)
   .then((response) => response.json())
   .then((data) => {
     const price = data.data.market_price_usd;
-    const blockHeight = data.data.blocks;
+    const currentBlock = data.data.blocks;
     const difficulty = data.data.difficulty;
-    const blocksToHalving = halvingBlock - blockHeight;
+    const blocksToHalving = nextHalvingBlock - currentBlock;
     
     const secsToHalving = blocksToHalving * 75;
     const countDownDate = new Date().getTime() + (secsToHalving * 1000);
@@ -38,7 +39,7 @@ fetch(url)
       let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, "0");
       let seconds = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, "0");
 
-      innTimer.innerHTML = `Next halving in: <br> ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      innTimer.innerHTML = `- ${days}d ${hours}h ${minutes}m ${seconds}s`;
       innHalvingDate.innerHTML = (new Date(countDownDate)).toDateString();
       innPrice.innerHTML = '$' + price;
       innBlockReward.innerHTML = blockReward.toLocaleString('en-US') + ' ZEC';
@@ -46,7 +47,7 @@ fetch(url)
       innInflation.innerHTML = inflationRate.toFixed(2) + '%';
       innToHalving.innerHTML = blocksToHalving.toLocaleString('en-US');
       innDifficulty.innerHTML = difficulty.toLocaleString('en-US');
-      innCurrentBlock.innerHTML = blockHeight.toLocaleString('en-US');
+      innCurrentBlock.innerHTML = currentBlock.toLocaleString('en-US');
 
       if (distance <= 0) {
         clearInterval(x);
@@ -57,4 +58,4 @@ fetch(url)
     }
     updateData();
   })
-  .catch((error) => console.log(error));
+  .catch((error) => console.log(error))
