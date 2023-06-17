@@ -16,7 +16,7 @@ fetch(url)
 
     // Percentage
     progress.style.width = progressPercent + '%';
-    document.querySelector("#progress-label").innerHTML = progressPercent.toFixed(2) + '%';
+    document.querySelector('#progress-label').innerHTML = progressPercent.toFixed(2) + '%';
   });
 
 // Collapse
@@ -44,7 +44,7 @@ const xhr = new XMLHttpRequest();
 xhr.open("HEAD", window.location.href, true);
 xhr.onreadystatechange = () => {
   if (xhr.readyState === xhr.DONE) {
-    const lastModified = new Date(xhr.getResponseHeader("Last-Modified"));
+    const lastModified = new Date(xhr.getResponseHeader('Last-Modified'));
     document.getElementById("last-update").innerHTML = `Site updated on ${lastModified.toLocaleDateString()}`;
   }
 }
@@ -52,7 +52,7 @@ xhr.send();
 
 // Footer copy address
 function copyAddr() {
-  const addr = document.querySelector("#copy-addr").innerText;
+  const addr = document.querySelector('#copy-addr').innerText;
   navigator.clipboard.writeText(addr);
-  alert("Copied, thank you!");
+  alert('Copied, thank you!');
 }
