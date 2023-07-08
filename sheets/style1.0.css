@@ -1,0 +1,135 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  padding: 3px;
+  margin: auto;
+  background-color: #fff;
+}
+
+header {
+  padding: 10px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header > div:nth-child(1) {
+  text-align: center;
+}
+
+header div:nth-child(2) {
+  text-align: right;
+  overflow-wrap: break-word;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #F4B72870;
+  border-radius: 6px;
+  justify-content: space-between;
+}
+
+footer > div {
+  flex-basis: 50%;
+  text-align: center;
+}
+
+footer div:nth-child(3) {
+  padding: 10px;
+  flex-basis: 100%;
+  overflow-x: scroll;
+}
+
+/* Tags style */
+sub {
+  padding: 1px;
+  font-style: italic;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:nth-child(even) {
+  background-color: #f4b72870;
+}
+
+table th {
+  color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #f4b72870;
+}
+
+/* Progress bar */
+#halving {
+  padding: 5px;
+  position: relative;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+#progress-box {
+  height: 20px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+#progress {
+  height: 100%;
+  border-radius: 10px;
+  background-color: #F4B728;
+  width: 0;
+}
+
+#progress-label {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+}
+
+
+/* Collapse */
+.collapsible {
+  width: 100%;
+  margin: 4px;
+  background-color: #F4B72870;
+  border: solid 1px black;
+  margin: 4px auto 4px auto;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.collapsible:hover {
+  background-color: #f4b728;
+}
+
+.content {
+  padding: 2px 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f4b72870;
+  border-radius: 6px;
+}

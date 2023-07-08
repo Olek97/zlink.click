@@ -39,7 +39,7 @@ fetch(url)
       let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, "0");
       let seconds = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, "0");
 
-      innTimer.innerHTML = `- ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      innTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
       innHalvingDate.innerHTML = (new Date(countDownDate)).toDateString();
       innPrice.innerHTML = '$' + price;
       innBlockReward.innerHTML = blockReward.toLocaleString('en-US') + ' ZEC';
