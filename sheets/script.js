@@ -12,9 +12,9 @@ fetch(url)
 
     const totalBlocks = nextHalvingBlock - previousHalvingBlock;
     const completedBlocks = currentBlock - previousHalvingBlock;
-    const progressPercent = (completedBlocks / totalBlocks) * 100;
 
     // Percentage
+    const progressPercent = (completedBlocks / totalBlocks) * 100;
     progress.style.width = progressPercent + '%';
     document.querySelector('#progress-label').innerHTML = progressPercent.toFixed(2) + '%';
   });
