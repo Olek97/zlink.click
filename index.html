@@ -333,12 +333,23 @@
         </div>
 
         <div id="stats">
-            <h2>Stats</h2>
+            <h2>Statistics</h2>
             <table>
                 <tbody>
                     <tr>
+                        <th colspan="2">Price</th>
+                    </tr>
+                    <tr>
                         <td>Price (USD):</td>
                         <td id="txt-price">???</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <th colspan="2">Emission</th>
                     </tr>
                     <tr>
                         <td>Max supply:</td>
@@ -347,10 +358,6 @@
                     <tr>
                         <td>Circulating supply:</td>
                         <td id="txt-circulating">~ 14,700,000 ZEC</td>
-                    </tr>
-                    <tr>
-                        <td>Block generation time:</td>
-                        <td>~ 75 seconds</td>
                     </tr>
                     <tr>
                         <td>Reward per block:</td>
@@ -364,9 +371,38 @@
                         <td>Inflation rate per annum:</td>
                         <td id="txt-inflation">???</td>
                     </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <th colspan="2">Network</th>
+                    </tr>
+                    <tr>
+                        <td>Block generation time:</td>
+                        <td>~ 75 seconds</td>
+                    </tr>
                     <tr>
                         <td>Current block:</td>
                         <td id="txt-current-block">???</td>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <td>Difficulty:</td>
+                        <td id="txt-difficulty">???</td>
+                    </tr>
+                    <tr>
+                        <td>Mempool</td>
+                        <td id="txt-mempool">???</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table id="halving">
+                <tbody>
+                    <tr>
+                        <th colspan="2">Halving</th>
                     </tr>
                     <tr>
                         <td>Halving date:</td>
@@ -384,22 +420,18 @@
                         <td>Total number of halvings:</td>
                         <td>1</td>
                     </tr>
-                    <tr>
-                        <td>Difficulty:</td>
-                        <td id="txt-difficulty">???</td>
-                    </tr>
                 </tbody>
             </table>
 
-            <div id="halving">
-                <h1>Halving progress</h1>
+            <div id="halving-bar">
+                <h1>Halving progress bar</h1>
                 <div id="progress-box">
                     <div id="progress"></div>
                     <span id="progress-label"></span> 
                 </div>
                 <h2 id="txt-timer"></h2>
             </div>
-            
+
             <h2>Halving events</h2>
             <ul>
                 <li>
@@ -416,7 +448,7 @@
                 <p>© 2023 Zlink</p>
             </div>
             <div>
-                <p id="last-update">V. 1.0</p>
+                <p id="last-update">V. 1.1</p>
             </div>
             <div>
                 <a id="copy-addr" href="#copy-addr" onclick="copyAddr()">zs15vhcz22u33q9cxt2ncssrdtcxu655t8eh7mdxxhxacalzr8nkvc6l777ynj2jec608h4wn0zwgw</a>

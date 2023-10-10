@@ -1,21 +1,24 @@
-const innPrice = document.querySelector("#txt-price");
-const innCurrentBlock = document.querySelector("#txt-current-block");
-const innToHalving = document.querySelector("#txt-to-halving");
-const innBlockReward = document.querySelector("#txt-block-reward")
-const innDailyZec = document.querySelector("#txt-daily-zec")
-const innInflation = document.querySelector("#txt-inflation");
-const innDifficulty = document.querySelector("#txt-difficulty");
-const innTimer = document.querySelector("#txt-timer");
-const innHalvingDate = document.querySelector("#txt-halving-date");
+const innHTML = {
+  innPrice: document.querySelector("#txt-price"),
+  innCurrentBlock: document.querySelector("#txt-current-block"),
+  innToHalving: document.querySelector("#txt-to-halving"),
+  innBlockReward: document.querySelector("#txt-block-reward"),
+  innDailyZec: document.querySelector("#txt-daily-zec"),
+  innInflation: document.querySelector("#txt-inflation"),
+  innDifficulty: document.querySelector("#txt-difficulty"),
+  innTimer: document.querySelector("#txt-timer"),
+  innHalvingDate: document.querySelector("#txt-halving-date"),
+  innMempool: document.querySelector("#txt-mempool")
+};
 
 const url = "https://api.blockchair.com/zcash/stats";
 
+const previousHalvingBlock = 1046400;
+const nextHalvingBlock = 2726400;
 const maxSupply = 21000000;
 const blockReward = 3.125;
 const blocksPerDay = 1152;
 const blocksPerYear = blocksPerDay * 365;
-const previousHalvingBlock = 1046400;
-const nextHalvingBlock = 2726400;
 const dailyZec = blocksPerDay * blockReward;
 const yearlyZec = blocksPerYear * blockReward;
 const inflationRate = (yearlyZec / maxSupply) * 100;
@@ -26,11 +29,11 @@ fetch(url)
     const price = data.data.market_price_usd;
     const currentBlock = data.data.blocks;
     const difficulty = data.data.difficulty;
+    const mempool = data.data.mempool_transactions;
     const blocksToHalving = nextHalvingBlock - currentBlock;
-    
     const secsToHalving = blocksToHalving * 75;
-    const countDownDate = new Date().getTime() + (secsToHalving * 1000);
-      
+    const countDownDate = new Date().getTime() + secsToHalving * 1000;
+
     function updateData() {
       let now = new Date().getTime();
       let distance = countDownDate - now;
@@ -39,23 +42,26 @@ fetch(url)
       let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, "0");
       let seconds = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, "0");
 
-      innTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-      innHalvingDate.innerHTML = (new Date(countDownDate)).toDateString();
-      innPrice.innerHTML = '$' + price;
-      innBlockReward.innerHTML = blockReward.toLocaleString('en-US') + ' ZEC';
-      innDailyZec.innerHTML = dailyZec.toLocaleString('en-US') + ' ZEC';
-      innInflation.innerHTML = inflationRate.toFixed(2) + '%';
-      innToHalving.innerHTML = blocksToHalving.toLocaleString('en-US');
-      innDifficulty.innerHTML = difficulty.toLocaleString('en-US');
-      innCurrentBlock.innerHTML = currentBlock.toLocaleString('en-US');
+      innHTML.innTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s to go`;
+      innHTML.innHalvingDate.innerHTML = new Date(countDownDate).toDateString();
+      innHTML.innPrice.innerHTML = "$" + price;
+      innHTML.innBlockReward.innerHTML = blockReward.toLocaleString("en-US") + " ZEC";
+      innHTML.innDailyZec.innerHTML = dailyZec.toLocaleString("en-US") + " ZEC";
+      innHTML.innInflation.innerHTML = inflationRate.toFixed(2) + "%";
+      innHTML.innToHalving.innerHTML = blocksToHalving.toLocaleString("en-US");
+      innHTML.innDifficulty.innerHTML = difficulty.toLocaleString("en-US");
+      innHTML.innCurrentBlock.innerHTML = currentBlock.toLocaleString("en-US");
+      innHTML.innMempool.innerHTML = mempool.toLocaleString("en-US");
 
       if (distance <= 0) {
         clearInterval(x);
-        innTimer.innerHTML = "Remember to @Olek97 on telegram to update the countdown.";
+        innHTML.innTimer.innerHTML = "Reach @Olek97 on telegram to update the countdown.";
       } else {
         requestAnimationFrame(updateData);
       }
     }
     updateData();
   })
-  .catch((error) => console.log(error))
+  .catch((error) => {
+    console.error(error);
+  });

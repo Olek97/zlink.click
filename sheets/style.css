@@ -54,30 +54,30 @@ sub {
 }
 
 table {
+  margin-left: auto;
+  margin-right: auto;
   border-collapse: collapse;
-  width: 100%;
+  width: 80%;
 }
 
 table td,
 table th {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 14px;
 }
 
-table tr:nth-child(even) {
-  background-color: #f4b72870;
+table td {
+  width: 50%;
 }
 
 table th {
-  color: white;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
   background-color: #f4b72870;
 }
 
 /* Progress bar */
-#halving {
+#halving-bar {
   padding: 5px;
   position: relative;
   width: 70%;
