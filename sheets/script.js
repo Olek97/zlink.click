@@ -45,7 +45,7 @@ xhr.open("HEAD", window.location.href, true);
 xhr.onreadystatechange = () => {
   if (xhr.readyState === xhr.DONE) {
     const lastModified = new Date(xhr.getResponseHeader('Last-Modified'));
-    document.getElementById("last-update").innerHTML = `Site updated on ${lastModified.toLocaleDateString()}`;
+    document.getElementById("last-update").innerHTML = `Last update ${lastModified.toLocaleDateString()}`;
   }
 }
 xhr.send();
