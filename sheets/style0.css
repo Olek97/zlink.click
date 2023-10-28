@@ -60,14 +60,15 @@ table {
   width: 80%;
 }
 
-table td,
-table th {
-  border: 1px solid #ddd;
-  padding: 14px;
+table tr {
+  display: flex;
 }
 
+table th,
 table td {
-  width: 50%;
+  flex: 1;
+  border: 1px solid #ddd;
+  padding: 14px;
 }
 
 table th {
