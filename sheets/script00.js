@@ -5,7 +5,7 @@ if (isFirefox) {
 }
 
 // Halving progress bar
-fetch(url)
+fetch(api[0])
   .then((response) => response.json())
   .then((data) => {
     const currentBlock = data.data.blocks;

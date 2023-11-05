@@ -11,7 +11,10 @@ const innHTML = {
   innMempool: document.querySelector("#txt-mempool")
 };
 
-const url = "https://api.blockchair.com/zcash/stats";
+const api = [
+  "https://api.blockchair.com/zcash/stats",
+  "https://zcashblockexplorer.com/api/v1/blockchain-info"
+];
 
 const previousHalvingBlock = 1046400;
 const nextHalvingBlock = 2726400;
@@ -23,13 +26,13 @@ const dailyZec = blocksPerDay * blockReward;
 const yearlyZec = blocksPerYear * blockReward;
 const inflationRate = (yearlyZec / maxSupply) * 100;
 
-fetch(url)
+fetch(api[0])
   .then((response) => response.json())
-  .then((data) => {
-    const price = data.data.market_price_usd;
-    const currentBlock = data.data.blocks;
-    const difficulty = data.data.difficulty;
-    const mempool = data.data.mempool_transactions;
+  .then((data1) => {
+    const price = data1.data.market_price_usd;
+    const currentBlock = data1.data.blocks;
+    const difficulty = data1.data.difficulty;
+    const mempool = data1.data.mempool_transactions;
     const blocksToHalving = nextHalvingBlock - currentBlock;
     const secsToHalving = blocksToHalving * 75;
     const countDownDate = new Date().getTime() + secsToHalving * 1000;
