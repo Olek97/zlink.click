@@ -4,21 +4,6 @@ if (isFirefox) {
   alert("Browser unsupported.");
 }
 
-// Halving progress bar
-fetch(api[0])
-  .then((response) => response.json())
-  .then((data) => {
-    const currentBlock = data.data.blocks;
-
-    const totalBlocks = nextHalvingBlock - previousHalvingBlock;
-    const completedBlocks = currentBlock - previousHalvingBlock;
-
-    // Percentage
-    const progressPercent = (completedBlocks / totalBlocks) * 100;
-    progress.style.width = progressPercent + '%';
-    document.querySelector('#progress-label').innerHTML = progressPercent.toFixed(2) + '%';
-  });
-
 // Collapse
 const collapsibles = document.querySelectorAll('.collapsible');
 const contents = document.querySelectorAll('.content');
@@ -30,7 +15,7 @@ collapsibles.forEach((collapsible, index) => {
         content.style.display = 'none';
       }
     });
-    
+
     if (contents[index].style.display !== 'block') {
       contents[index].style.display = 'block';
     } else {
