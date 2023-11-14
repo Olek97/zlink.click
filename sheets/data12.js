@@ -83,7 +83,7 @@ async function fetchAllData() {
     innHTML.innToHalving.innerHTML = blocksToHalving.toLocaleString("en-US");
     innHTML.innDifficulty.innerHTML = difficulty.toLocaleString("en-US");
     innHTML.innCurrentBlock.innerHTML = currentBlock.toLocaleString("en-US");
-    innHTML.innMempool.innerHTML = mempool.toLocaleString("en-US") + " TX";
+    innHTML.innMempool.innerHTML = mempool.toLocaleString("en-US") + " TXs";
     innHTML.innTransparentPool.innerHTML = Math.floor(transparent).toLocaleString("en-US") + " ZEC";
     innHTML.innSproutPool.innerHTML = Math.floor(sprout).toLocaleString("en-US") + " ZEC";
     innHTML.innSaplingPool.innerHTML = Math.floor(sapling).toLocaleString("en-US") + " ZEC";
