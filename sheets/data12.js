@@ -84,11 +84,11 @@ async function fetchAllData() {
     innHTML.innDifficulty.innerHTML = difficulty.toLocaleString("en-US");
     innHTML.innCurrentBlock.innerHTML = currentBlock.toLocaleString("en-US");
     innHTML.innMempool.innerHTML = mempool.toLocaleString("en-US") + " TX";
-    innHTML.innTransparentPool.innerHTML = transparent.toLocaleString("en-US") + " ZEC";
-    innHTML.innSproutPool.innerHTML = sprout.toLocaleString("en-US") + " ZEC";
-    innHTML.innSaplingPool.innerHTML = sapling.toLocaleString("en-US") + " ZEC";
-    innHTML.innOrchardPool.innerHTML = orchard.toLocaleString("en-US") + " ZEC";
-    innHTML.innTotalSupply.innerHTML = totalSupply.toLocaleString("en-US") + " ZEC";
+    innHTML.innTransparentPool.innerHTML = Math.floor(transparent).toLocaleString("en-US") + " ZEC";
+    innHTML.innSproutPool.innerHTML = Math.floor(sprout).toLocaleString("en-US") + " ZEC";
+    innHTML.innSaplingPool.innerHTML = Math.floor(sapling).toLocaleString("en-US") + " ZEC";
+    innHTML.innOrchardPool.innerHTML = Math.floor(orchard).toLocaleString("en-US") + " ZEC";
+    innHTML.innTotalSupply.innerHTML = Math.floor(totalSupply).toLocaleString("en-US") + " ZEC";
 
     function Timer() {
       const now = new Date().getTime();
