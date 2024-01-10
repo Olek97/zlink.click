@@ -1,6 +1,7 @@
 const innHTML = {
   innPrice: document.querySelector("#txt-price"),
   innMarketCap: document.querySelector("#txt-market-cap"),
+  innDiluitedMarketCap: document.querySelector("#txt-diluited-market-cap"),
   innCurrentBlock: document.querySelector("#txt-current-block"),
   innToHalving: document.querySelector("#txt-to-halving"),
   innBlockReward: document.querySelector("#txt-block-reward"),
@@ -76,6 +77,7 @@ async function fetchAllData() {
     totalSupply = transparent + sprout + sapling + orchard;
     price = bhr.data.market_price_usd;
     marketCap = price * totalSupply;
+    diluitedMarketCap = price * maxSupply;
 
     innHTML.innHalvingDate.innerHTML = new Date(countDownDate).toDateString();
     innHTML.innPrice.innerHTML = price + " $";
@@ -92,6 +94,7 @@ async function fetchAllData() {
     innHTML.innOrchardPool.innerHTML = Math.floor(orchard).toLocaleString("en-US") + " ZEC";
     innHTML.innTotalSupply.innerHTML = Math.floor(totalSupply).toLocaleString("en-US") + " ZEC";
     innHTML.innMarketCap.innerHTML = Math.floor(marketCap).toLocaleString("en-US") + " $";
+    innHTML.innDiluitedMarketCap.innerHTML = Math.floor(diluitedMarketCap).toLocaleString("en-US") + " $";
 
     function Timer() {
       const now = new Date().getTime();
