@@ -1,5 +1,6 @@
 const innHTML = {
   innPrice: document.querySelector("#txt-price"),
+  innMarketCap: document.querySelector("#txt-market-cap"),
   innCurrentBlock: document.querySelector("#txt-current-block"),
   innToHalving: document.querySelector("#txt-to-halving"),
   innBlockReward: document.querySelector("#txt-block-reward"),
@@ -62,7 +63,6 @@ async function fetchAllData() {
     const bhr = apiData[0];
     const zbe = apiData[1];
 
-    price = bhr.data.market_price_usd;
     currentBlock = bhr.data.blocks;
     difficulty = bhr.data.difficulty;
     mempool = bhr.data.mempool_transactions;
@@ -74,9 +74,11 @@ async function fetchAllData() {
     sapling = zbe.valuePools[2].chainValue;
     orchard = zbe.valuePools[3].chainValue;
     totalSupply = transparent + sprout + sapling + orchard;
+    price = bhr.data.market_price_usd;
+    marketCap = price * totalSupply;
 
     innHTML.innHalvingDate.innerHTML = new Date(countDownDate).toDateString();
-    innHTML.innPrice.innerHTML = "$" + price;
+    innHTML.innPrice.innerHTML = price + " $";
     innHTML.innBlockReward.innerHTML = blockReward.toLocaleString("en-US") + " ZEC";
     innHTML.innDailyZec.innerHTML = dailyZec.toLocaleString("en-US") + " ZEC";
     innHTML.innInflation.innerHTML = inflationRate.toFixed(2) + "%";
@@ -89,6 +91,7 @@ async function fetchAllData() {
     innHTML.innSaplingPool.innerHTML = Math.floor(sapling).toLocaleString("en-US") + " ZEC";
     innHTML.innOrchardPool.innerHTML = Math.floor(orchard).toLocaleString("en-US") + " ZEC";
     innHTML.innTotalSupply.innerHTML = Math.floor(totalSupply).toLocaleString("en-US") + " ZEC";
+    innHTML.innMarketCap.innerHTML = Math.floor(marketCap).toLocaleString("en-US") + " $";
 
     function Timer() {
       const now = new Date().getTime();
