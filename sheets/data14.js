@@ -32,7 +32,8 @@ let transparent, sprout, sapling, orchard, totalSupply, currentBlock, difficulty
 
 const api = [
   "https://api.blockchair.com/zcash/stats",
-  "https://corsproxy.io/?" + encodeURIComponent("https://zcashblockexplorer.com/api/v1/blockchain-info")
+  "https://corsproxy.io/?" + encodeURIComponent("https://zcashblockexplorer.com/api/v1/blockchain-info"),
+  "https://api.coingecko.com/api/v3/simple/price?ids=zcash&vs_currencies=usd&include_market_cap=false&include_24hr_vol=false&include_24hr_change=true&include_last_updated_at=false&precision=5&c"
 ];
 
 function fetchData(url) {
@@ -63,6 +64,7 @@ async function fetchAllData() {
 
     const bhr = apiData[0];
     const zbe = apiData[1];
+    const cgk = apiData[2];
 
     currentBlock = bhr.data.blocks;
     difficulty = bhr.data.difficulty;
@@ -75,7 +77,7 @@ async function fetchAllData() {
     sapling = zbe.valuePools[2].chainValue;
     orchard = zbe.valuePools[3].chainValue;
     totalSupply = transparent + sprout + sapling + orchard;
-    price = bhr.data.market_price_usd;
+    price = cgk.zcash.usd;
     marketCap = price * totalSupply;
     diluitedMarketCap = price * maxSupply;
 
