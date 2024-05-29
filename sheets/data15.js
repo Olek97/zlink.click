@@ -16,6 +16,8 @@ const domElements = {
   sproutPool: document.querySelector("#txt-zcpool"),
   saplingPool: document.querySelector("#txt-zspool"),
   orchardPool: document.querySelector("#txt-opool"),
+  shieldedPool: document.querySelector("#txt-shieldedpool"),
+  shieldedPercent: document.querySelector("#txt-shieldedpercent"),
   totalSupply: document.querySelector("#txt-total-supply"),
 };
 
@@ -29,11 +31,11 @@ const dailyZec = blocksPerDay * blockReward;
 const yearlyZec = blocksPerYear * blockReward;
 const inflationRate = (yearlyZec / maxSupply) * 100;
 
-let transparent, sprout, sapling, orchard, totalSupply, currentBlock, difficulty, mempool, blocksToHalving, secsToHalving, countDownDate, price, priceChange24, marketCap, diluitedMarketCap;
+let transparent, shielded, percentShielded, sprout, sapling, orchard, totalSupply, currentBlock, difficulty, mempool, blocksToHalving, secsToHalving, countDownDate, price, priceChange24, marketCap, diluitedMarketCap;
 
 const api = [
   "https://api.blockchair.com/zcash/stats",
-  "https://corsproxy.io/?" + encodeURIComponent("https://zcashblockexplorer.com/api/v1/blockchain-info"),
+  "https://corsproxy.io/?" + encodeURIComponent("https://thingproxy.freeboard.io/fetch/https://zcashblockexplorer.com/api/v1/blockchain-info"),
   "https://api.coingecko.com/api/v3/simple/price?ids=zcash&vs_currencies=usd&include_market_cap=false&include_24hr_vol=false&include_24hr_change=true&include_last_updated_at=false&precision=5&c"
 ];
 
@@ -59,28 +61,15 @@ async function fetchAllData() {
     sprout = zbe.valuePools[1].chainValue;
     sapling = zbe.valuePools[2].chainValue;
     orchard = zbe.valuePools[3].chainValue;
+    shielded = sprout + sapling + orchard;
+    percentShielded = (shielded / transparent) * 100;
     totalSupply = transparent + sprout + sapling + orchard;
     price = cgk.zcash.usd;
     priceChange24 = cgk.zcash.usd_24h_change;
     marketCap = price * totalSupply;
     diluitedMarketCap = price * maxSupply;
 
-    updateDOM({
-      countDownDate,
-      price,
-      priceChange24,
-      marketCap,
-      diluitedMarketCap,
-      blocksToHalving,
-      difficulty,
-      currentBlock,
-      mempool,
-      transparent,
-      sprout,
-      sapling,
-      orchard,
-      totalSupply
-    });
+    updateDOM();
 
     startTimer();
 
@@ -97,30 +86,32 @@ async function fetchAllData() {
 
     // Percentage
     document.querySelector('#progress-label').innerHTML = progressPercent.toFixed(2) + '%';
-    
+
   } catch (error) {
     console.log("An error occurred:", error);
   }
 }
 
-function updateDOM(data) {
-  domElements.halvingDate.innerHTML = new Date(data.countDownDate).toDateString();
-  domElements.price.innerHTML = data.price.toFixed(2) + " $";
-  domElements.marketCap.innerHTML = Math.floor(data.marketCap).toLocaleString("en-US") + " $";
-  domElements.diluitedMarketCap.innerHTML = Math.floor(data.diluitedMarketCap).toLocaleString("en-US") + " $";
+function updateDOM() {
+  domElements.halvingDate.innerHTML = new Date(countDownDate).toDateString();
+  domElements.price.innerHTML = price.toFixed(2) + " $";
+  domElements.marketCap.innerHTML = Math.floor(marketCap).toLocaleString("en-US") + " $";
+  domElements.diluitedMarketCap.innerHTML = Math.floor(diluitedMarketCap).toLocaleString("en-US") + " $";
   domElements.blockReward.innerHTML = blockReward.toLocaleString("en-US") + " ZEC";
   domElements.dailyZec.innerHTML = dailyZec.toLocaleString("en-US") + " ZEC";
   domElements.inflation.innerHTML = inflationRate.toFixed(2) + "%";
-  domElements.toHalving.innerHTML = data.blocksToHalving.toLocaleString("en-US");
-  domElements.difficulty.innerHTML = data.difficulty.toLocaleString("en-US");
-  domElements.currentBlock.innerHTML = data.currentBlock.toLocaleString("en-US");
-  domElements.mempool.innerHTML = data.mempool.toLocaleString("en-US") + " TXs";
-  domElements.transparentPool.innerHTML = Math.floor(data.transparent).toLocaleString("en-US") + " ZEC";
-  domElements.sproutPool.innerHTML = Math.floor(data.sprout).toLocaleString("en-US") + " ZEC";
-  domElements.saplingPool.innerHTML = Math.floor(data.sapling).toLocaleString("en-US") + " ZEC";
-  domElements.orchardPool.innerHTML = Math.floor(data.orchard).toLocaleString("en-US") + " ZEC";
-  domElements.totalSupply.innerHTML = Math.floor(data.totalSupply).toLocaleString("en-US") + " ZEC";
-  domElements.priceChange24.innerHTML = data.priceChange24.toFixed(2) + "%";
+  domElements.toHalving.innerHTML = blocksToHalving.toLocaleString("en-US");
+  domElements.difficulty.innerHTML = difficulty.toLocaleString("en-US");
+  domElements.currentBlock.innerHTML = currentBlock.toLocaleString("en-US");
+  domElements.mempool.innerHTML = mempool.toLocaleString("en-US") + " TXs";
+  domElements.transparentPool.innerHTML = Math.floor(transparent).toLocaleString("en-US") + " ZEC";
+  domElements.sproutPool.innerHTML = Math.floor(sprout).toLocaleString("en-US") + " ZEC";
+  domElements.saplingPool.innerHTML = Math.floor(sapling).toLocaleString("en-US") + " ZEC";
+  domElements.orchardPool.innerHTML = Math.floor(orchard).toLocaleString("en-US") + " ZEC";
+  domElements.totalSupply.innerHTML = Math.floor(totalSupply).toLocaleString("en-US") + " ZEC";
+  domElements.shieldedPool.innerHTML = Math.floor(shielded).toLocaleString("en-US");
+  domElements.shieldedPercent.innerHTML = percentShielded.toFixed(2) + "%";
+  domElements.priceChange24.innerHTML = priceChange24.toFixed(2) + "%";
 }
 
 function startTimer() {
