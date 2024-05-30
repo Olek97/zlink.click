@@ -109,7 +109,7 @@ function updateDOM() {
   domElements.saplingPool.innerHTML = Math.floor(sapling).toLocaleString("en-US") + " ZEC";
   domElements.orchardPool.innerHTML = Math.floor(orchard).toLocaleString("en-US") + " ZEC";
   domElements.totalSupply.innerHTML = Math.floor(totalSupply).toLocaleString("en-US") + " ZEC";
-  domElements.shieldedPool.innerHTML = Math.floor(shielded).toLocaleString("en-US");
+  domElements.shieldedPool.innerHTML = Math.floor(shielded).toLocaleString("en-US") + " ZEC";
   domElements.shieldedPercent.innerHTML = percentShielded.toFixed(2) + "%";
   domElements.priceChange24.innerHTML = priceChange24.toFixed(2) + "%";
 }
