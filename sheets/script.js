@@ -41,3 +41,5 @@ function copyAddr() {
   navigator.clipboard.writeText(addr);
   alert('Copied, thank you!');
 }
+
+alert("Site partially non-functional due to support termination of https://zcashblockexplorer.com/ and their API. We are working to restore all functionality.")
