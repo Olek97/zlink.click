@@ -35,7 +35,7 @@ let transparent, shielded, percentShielded, sprout, sapling, orchard, totalSuppl
 
 const api = [
   "https://api.blockchair.com/zcash/stats",
-  "https://corsproxy.io/?" + encodeURIComponent("https://thingproxy.freeboard.io/fetch/https://zcashblockexplorer.com/api/v1/blockchain-info"),
+  "https://api.3xpl.com/?token=3A0_t3st3xplor3rpub11cb3t4efcd21748a5e",
   "https://api.coingecko.com/api/v3/simple/price?ids=zcash&vs_currencies=usd&include_market_cap=false&include_24hr_vol=false&include_24hr_change=true&include_last_updated_at=false&precision=5&c"
 ];
 
@@ -49,7 +49,7 @@ async function fetchData(url) {
 
 async function fetchAllData() {
   try {
-    const [bhr, zbe, cgk] = await Promise.all(api.map(fetchData));
+    const [bhr, xpl, cgk] = await Promise.all(api.map(fetchData));
 
     currentBlock = bhr.data.blocks;
     difficulty = bhr.data.difficulty;
@@ -57,10 +57,10 @@ async function fetchAllData() {
     blocksToHalving = nextHalvingBlock - currentBlock;
     secsToHalving = blocksToHalving * 75;
     countDownDate = new Date().getTime() + secsToHalving * 1000;
-    transparent = zbe.valuePools[0].chainValue;
-    sprout = zbe.valuePools[1].chainValue;
-    sapling = zbe.valuePools[2].chainValue;
-    orchard = zbe.valuePools[3].chainValue;
+    transparent = 0;
+    sprout = 0;
+    sapling = 0;
+    orchard = 0;
     shielded = sprout + sapling + orchard;
     percentShielded = (shielded / transparent) * 100;
     totalSupply = transparent + sprout + sapling + orchard;
