@@ -41,5 +41,3 @@ function copyAddr() {
   navigator.clipboard.writeText(addr);
   alert('Copied, thank you!');
 }
-
-alert("Incomplete network data due to the end of support for https://zcashblockexplorer.com/ and its API.")

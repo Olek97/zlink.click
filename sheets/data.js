@@ -37,6 +37,7 @@ const api = [
   "https://api.blockchair.com/zcash/stats",
   "https://api.3xpl.com/?token=3A0_t3st3xplor3rpub11cb3t4efcd21748a5e",
   "https://api.coingecko.com/api/v3/simple/price?ids=zcash&vs_currencies=usd&include_market_cap=false&include_24hr_vol=false&include_24hr_change=true&include_last_updated_at=false&precision=5&c"
+  //"https://corsproxy.io/?" + encodeURIComponent("https://zcashblockexplorer.com/api/v1/blockchain-info"),
 ];
 
 async function fetchData(url) {
@@ -62,8 +63,8 @@ async function fetchAllData() {
     sapling = 0;
     orchard = 0;
     shielded = sprout + sapling + orchard;
-    percentShielded = (shielded / transparent) * 100;
-    totalSupply = transparent + sprout + sapling + orchard;
+    percentShielded = percentShielded = transparent !== 0 ? (shielded / transparent) * 100 : 0;
+    totalSupply = transparent + shielded;
     price = cgk.zcash.usd;
     priceChange24 = cgk.zcash.usd_24h_change;
     marketCap = price * totalSupply;
