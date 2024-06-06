@@ -1,6 +1,7 @@
 *{
   font-family: Arial, Helvetica, sans-serif;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -17,6 +18,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+header > #logo:hover {
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 -6px 12px rgba(0, 0, 0, 0.2);
 }
 
 header > div:nth-child(1) {
@@ -53,6 +59,7 @@ sub {
   font-style: italic;
 }
 
+/* Table */
 table {
   margin-left: auto;
   margin-right: auto;
@@ -110,21 +117,57 @@ table th {
   transform: translateY(-50%);
 }
 
+/* Buttons */
+.btn-centred-container {
+  text-align: center;
+}
 
-/* Collapse */
-.collapsible {
-  width: 100%;
-  margin: 4px;
+/* Buttons */
+.btn-centred-container {
+  text-align: center;
+}
+
+.btn {
   background-color: #F4B72870;
   border: solid 1px black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px auto;
+  cursor: pointer;
+  transition: all 0.6s;
+  position: relative;
+  padding: 20px 40px;
+  border-radius: 50% 30% 50% 30% / 60% 40% 60% 40%;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 -6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background-color: #f4b728;
+  border-radius: 20% 50% 50% 20% / 30% 40% 60% 50%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 -10px 20px rgba(0, 0, 0, 0.3);
+  transform: translate(10px, 10px) rotate(15deg) scale(1.1);
+}
+
+.btn:visited {
+  color: black;
+  text-decoration: none;
+}
+
+/* Collapsibles */
+.collapsible {
+  background-color: #F4B72870;
+  border: solid 1px black;
+  width: 100%;
   margin: 4px auto 4px auto;
   cursor: pointer;
   text-align: center;
   border-radius: 6px;
 }
 
-.collapsible:hover {
+.collapsible:hover, .collapsible:focus {
   background-color: #f4b728;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 -10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .content {

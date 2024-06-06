@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Zlink | Dashboard</title>
+        <meta name="description" content="Zlink is your ultimate gateway to the world of Zcash! Discover and navigate the entire Zcash ecosystem with ease.">
+        <meta name="keywords" content="Zcash, What is Zcash?, Zcash info, Zcash guide, About Zcash, Zcash resources, Zcash manual, Zcash tools, Zcash explorers, Zcash wallet, Zcash block, Zcash halving, Zcash countdown">
+        <link rel="shortcut icon" href=".././img/faviocon.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href=".././sheets/style.css">
+    </head>    
+
+    <body>
+        <noscript>
+            <p>Your browser does not support JavaScript or you have it disabled. Some features may not be available.</p>
+        </noscript>
+        <header>
+            <div id="logo">
+                <a href="../index.html"><img src=".././img/Logo.webp" alt="Logo" width="100"></a>
+            </div>
+            <div>
+                <a href=".././index.html">Home</a>
+                <span>/</span>
+                <a href="#halving">Halving</a>
+                <span>/</span>
+                <a href="https://zechub.wiki/" target="_blank">Wiki</a>
+                <span>/</span>
+                <a href="https://forum.zcashcommunity.com/" target="_blank">Forum</a>
+            </div>
+        </header>
+
+        <div id="metrics">
+            <table id="market">
+                <tbody>
+                    <tr>
+                        <th colspan="2">Market</th>
+                    </tr>
+                    <tr>
+                        <td>Price:</td>
+                        <td id="txt-price">???</td>
+                    </tr>
+                    <tr>
+                        <td>24h change:</td>
+                        <td id="txt-price-change24">???</td>
+                    </tr>
+                    <tr>
+                        <td>Diluited Market Cap.:</td>
+                        <td id="txt-diluited-market-cap">???</td>
+                    </tr>
+                    <tr>
+                        <td>Market Cap.:</td>
+                        <td id="txt-market-cap">???</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table id="supply">
+                <tbody>
+                    <tr>
+                        <th colspan="2">Supply</th>
+                    </tr>
+                    <tr>
+                        <td>Max supply:</td>
+                        <td>21,000,000 ZEC</td>
+                    </tr>
+                    <tr>
+                        <td>Total circulating supply:</td>
+                        <td id="txt-total-supply">~ 15,700,000 ZEC</td>
+                    </tr>
+                    <tr>
+                        <td>Transparent supply:</td>
+                        <td id="txt-tpool">???</td>
+                    </tr>
+                    <tr>
+                        <td>Shielded supply:</td>
+                        <td id="txt-shieldedpool">???</td>
+                    </tr>
+                    <tr>
+                        <td>Shielded vs Transparent:</td>
+                        <td id="txt-shieldedpercent">???</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table id="emission">
+                <tbody>
+                    <tr>
+                        <th colspan="2">Emission</th>
+                    </tr>
+                    <tr>
+                        <td>Reward per block:</td>
+                        <td id="txt-block-reward">3.125 ZEC</td>
+                    </tr>
+                    <tr>
+                        <td>Rewards per day:</td>
+                        <td id="txt-daily-zec">???</td>
+                    </tr>
+                    <tr>
+                        <td>Inflation rate per annum:</td>
+                        <td id="txt-inflation">???</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table id="network">
+                <tbody>
+                    <tr>
+                        <th colspan="2">Network</th>
+                    </tr>
+                    <tr>
+                        <td>Block generation time:</td>
+                        <td>~ 75 seconds</td>
+                    </tr>
+                    <tr>
+                        <td>Total blocks:</td>
+                        <td id="txt-current-block">???</td>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <td>Difficulty:</td>
+                        <td id="txt-difficulty">???</td>
+                    </tr>
+                    <tr>
+                        <td>Mempool</td>
+                        <td id="txt-mempool">???</td>
+                    </tr>
+                    <tr>
+                        <td>Sprout pool:</td>
+                        <td id="txt-zcpool">???</td>
+                    </tr>
+                    <tr>
+                        <td>Sapling pool:</td>
+                        <td id="txt-zspool">???</td>
+                    </tr>
+                    <tr>
+                        <td>Orchard pool:</td>
+                        <td id="txt-opool">???</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table id="halving">
+                <tbody>
+                    <tr>
+                        <th colspan="2">Halving</th>
+                    </tr>
+                    <tr>
+                        <td>Halving date:</td>
+                        <td id="txt-halving-date">???</td>
+                    </tr>
+                    <tr>
+                        <td>Halving block:</td>
+                        <td>2,726,400</td>
+                    </tr>
+                    <tr>
+                        <td>Blocks until halving:</td>
+                        <td id="txt-to-halving">???</td>
+                    </tr>
+                    <tr>
+                        <td>Halvings performed to date:</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="halving-bar">
+                <h1>Halving progress bar</h1>
+                <div id="progress-box">
+                    <div id="progress"></div>
+                    <span id="progress-label"></span> 
+                </div>
+                <h2 id="txt-timer"></h2>
+            </div>
+
+            <table id="halving-schedule">
+                <tbody>
+                    <tr>
+                        <th colspan="3">Halving schedule</th>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td>Year</td>
+                        <td>Block Halving Height</td>
+                        <td>Reward per block</td>
+                    </tr>
+                    <tr>
+                        <td>2020</td>
+                        <td>1,046,400</td>
+                        <td>3.125 ZEC</td>
+                    </tr>
+                    <tr>
+                        <td>2024</td>
+                        <td>2,726,400</td>
+                        <td>1.5625 ZEC</td>
+                    </tr>
+                    <tr>
+                        <td>2028</td>
+                        <td>4,406,400</td>
+                        <td>0.78125 ZEC</td>
+                    </tr>
+                    <tr>
+                        <td>2032</td>
+                        <td>6,086,400</td>
+                        <td>0.390625 ZEC</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+        </div>
+        
+        <footer>
+            <div>
+                <p>© 2024 Zlink</p>
+            </div>
+            <div>
+                <p id="last-update">V. 1.7</p>
+            </div>
+            <div>
+                <a id="copy-addr" href="#copy-addr" onclick="copyAddr()">zs15vhcz22u33q9cxt2ncssrdtcxu655t8eh7mdxxhxacalzr8nkvc6l777ynj2jec608h4wn0zwgw</a>
+                <p>MIT License</p>
+                <p>Fork or contribute <a href="https://github.com/Olek97/zlink.click" target="_blank">here</a> :)</p>
+            </div>
+        </footer>
+        <script src=".././sheets/data.js"></script>
+        <script src=".././sheets/script.js"></script>
+    </body>
+</html>

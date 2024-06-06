@@ -34,9 +34,11 @@ const inflationRate = (yearlyZec / maxSupply) * 100;
 let transparent, shielded, percentShielded, sprout, sapling, orchard, totalSupply, currentBlock, difficulty, mempool, blocksToHalving, secsToHalving, countDownDate, price, priceChange24, marketCap, diluitedMarketCap;
 
 const api = [
+  "https://api.coingecko.com/api/v3/simple/price?ids=zcash&vs_currencies=usd&include_market_cap=false&include_24hr_vol=false&include_24hr_change=true&include_last_updated_at=false&precision=5&c",
   "https://api.blockchair.com/zcash/stats",
+  "https://data.messari.io/api/v1/assets/zcash/metrics",
   "https://api.3xpl.com/?token=3A0_t3st3xplor3rpub11cb3t4efcd21748a5e",
-  "https://api.coingecko.com/api/v3/simple/price?ids=zcash&vs_currencies=usd&include_market_cap=false&include_24hr_vol=false&include_24hr_change=true&include_last_updated_at=false&precision=5&c"
+  "https://raw.githubusercontent.com/ZecHub/zechub-wiki/main/public/data/shielded_supply.json",
   //"https://corsproxy.io/?" + encodeURIComponent("https://zcashblockexplorer.com/api/v1/blockchain-info"),
 ];
 
@@ -50,7 +52,7 @@ async function fetchData(url) {
 
 async function fetchAllData() {
   try {
-    const [bhr, xpl, cgk] = await Promise.all(api.map(fetchData));
+    const [cgk, bhr, msr, xpl, ssp] = await Promise.all(api.map(fetchData));
 
     currentBlock = bhr.data.blocks;
     difficulty = bhr.data.difficulty;
@@ -58,13 +60,13 @@ async function fetchAllData() {
     blocksToHalving = nextHalvingBlock - currentBlock;
     secsToHalving = blocksToHalving * 75;
     countDownDate = new Date().getTime() + secsToHalving * 1000;
-    transparent = 0;
-    sprout = 0;
-    sapling = 0;
-    orchard = 0;
-    shielded = sprout + sapling + orchard;
+    sprout = undefined;
+    sapling = undefined;
+    orchard = undefined;
+    shielded = ssp[ssp.length - 1].supply;
+    totalSupply = msr.data.supply.circulating;
+    transparent = totalSupply-shielded;
     percentShielded = percentShielded = transparent !== 0 ? (shielded / transparent) * 100 : 0;
-    totalSupply = transparent + shielded;
     price = cgk.zcash.usd;
     priceChange24 = cgk.zcash.usd_24h_change;
     marketCap = price * totalSupply;
