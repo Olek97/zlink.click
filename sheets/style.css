@@ -128,6 +128,7 @@ table th {
 }
 
 .btn {
+  color: black;
   background-color: #F4B72870;
   border: solid 1px black;
   text-align: center;
