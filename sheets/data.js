@@ -38,7 +38,9 @@ const api = [
   "https://api.blockchair.com/zcash/stats",
   "https://data.messari.io/api/v1/assets/zcash/metrics",
   "https://api.3xpl.com/?token=3A0_t3st3xplor3rpub11cb3t4efcd21748a5e",
-  "https://raw.githubusercontent.com/ZecHub/zechub-wiki/main/public/data/shielded_supply.json",
+  "https://raw.githubusercontent.com/ZecHub/zechub-wiki/main/public/data/sprout_supply.json",
+  "https://raw.githubusercontent.com/ZecHub/zechub-wiki/main/public/data/sapling_supply.json",
+  "https://raw.githubusercontent.com/ZecHub/zechub-wiki/main/public/data/orchard_supply.json",
   //"https://corsproxy.io/?" + encodeURIComponent("https://zcashblockexplorer.com/api/v1/blockchain-info"),
 ];
 
@@ -52,18 +54,18 @@ async function fetchData(url) {
 
 async function fetchAllData() {
   try {
-    const [cgk, bhr, msr, xpl, ssp] = await Promise.all(api.map(fetchData));
-
+    const [cgk, bhr, msr, xpl, psp, psa, por] = await Promise.all(api.map(fetchData));
+    console.log(por[por.length - 1].supply);
     currentBlock = bhr.data.blocks;
     difficulty = bhr.data.difficulty;
     mempool = bhr.data.mempool_transactions;
     blocksToHalving = nextHalvingBlock - currentBlock;
     secsToHalving = blocksToHalving * 75;
     countDownDate = new Date().getTime() + secsToHalving * 1000;
-    sprout = undefined;
-    sapling = undefined;
-    orchard = undefined;
-    shielded = ssp[ssp.length - 1].supply;
+    sprout = psp[psp.length - 1].supply;
+    sapling = psa[psa.length - 1].supply;
+    orchard = por[por.length - 1].supply;
+    shielded = sprout + sapling + orchard;
     totalSupply = msr.data.supply.circulating;
     transparent = totalSupply-shielded;
     percentShielded = percentShielded = transparent !== 0 ? (shielded / transparent) * 100 : 0;
