@@ -39,12 +39,7 @@ const domElements = {
   totalSupply: document.querySelector("#txt-total-supply"),
 };
 
-const blocksPerYear = config.blocksPerDay * 365;
-const dailyZec = config.blocksPerDay * config.blockReward;
-const yearlyZec = blocksPerYear * config.blockReward;
-const inflationRate = (yearlyZec / config.maxSupply) * 100;
-
-let transparent, shielded, percentShielded, sprout, sapling, orchard, totalSupply, currentBlock, difficulty, mempool, blocksToHalving, secsToHalving, countDownDate, price, priceChange24, marketCap, diluitedMarketCap;
+let transparent, shielded, percentShielded, sprout, sapling, orchard, totalSupply, currentBlock, dailyZec, yearlyZec, blocksPerYear, inflationRate, difficulty, mempool, blocksToHalving, secsToHalving, countDownDate, price, priceChange24, marketCap, diluitedMarketCap;
 
 (async function fetchAllData() {
   try {
@@ -57,7 +52,6 @@ let transparent, shielded, percentShielded, sprout, sapling, orchard, totalSuppl
     };
 
     const [cgk, bhr, msr, zex, xpl] = await Promise.all(config.api.map(fetchData));
-    console.log(zex.valuePools[0].chainValue);
     currentBlock = bhr.data.blocks;
     difficulty = bhr.data.difficulty;
     mempool = bhr.data.mempool_transactions;
@@ -75,6 +69,10 @@ let transparent, shielded, percentShielded, sprout, sapling, orchard, totalSuppl
     priceChange24 = cgk.zcash.usd_24h_change;
     marketCap = price * totalSupply;
     diluitedMarketCap = price * config.maxSupply;
+    blocksPerYear = config.blocksPerDay * 365;
+    dailyZec = config.blocksPerDay * config.blockReward;
+    yearlyZec = blocksPerYear * config.blockReward;
+    inflationRate = (yearlyZec / totalSupply) * 100;
 
     (function updateDOM() {
       domElements.halvingDate.innerHTML = new Date(countDownDate).toDateString();
