@@ -64,8 +64,8 @@ const domElements = {
     const totalSupply = msr.data.supply.circulating;
     const transparent = zex.valuePools[0].chainValue;
     const percentShielded = transparent !== 0 ? (shielded / transparent) * 100 : 0;
-    const price = cgk.zcash.usd;
-    const priceChange24 = cgk.zcash.usd_24h_change;
+    const price = msr.data.market_data.price_usd;
+    const priceChange24 = msr.data.market_data.percent_change_usd_last_24_hours;
     const marketCap = price * totalSupply;
     const diluitedMarketCap = price * config.maxSupply;
     const blocksPerYear = config.blocksPerDay * 365;
