@@ -2,11 +2,11 @@ const config = {
   cacheKey: 'zcashDataCache',
   cacheTimeout: 3 * 60 * 1000,
   api: [
-    "https://api.coingecko.com/api/v3/simple/price?ids=zcash&vs_currencies=usd&include_market_cap=false&include_24hr_vol=false&include_24hr_change=true&include_last_updated_at=false&precision=5&c",
     "https://api.blockchair.com/zcash/stats",
     "https://data.messari.io/api/v1/assets/zcash/metrics",
     "https://api.allorigins.win/raw?url=" + encodeURIComponent("https://mainnet.zcashexplorer.app/api/v1/blockchain-info"),
-    "https://api.3xpl.com/?token=3A0_t3st3xplor3rpub11cb3t4efcd21748a5e",
+    //"https://api.coingecko.com/api/v3/simple/price?ids=zcash&vs_currencies=usd&include_market_cap=false&include_24hr_vol=false&include_24hr_change=true&include_last_updated_at=false&precision=5&c",
+    //"https://api.3xpl.com/?token=3A0_t3st3xplor3rpub11cb3t4efcd21748a5e",
     //"https://raw.githubusercontent.com/ZecHub/zechub-wiki/main/public/data/sprout_supply.json",
     //"https://raw.githubusercontent.com/ZecHub/zechub-wiki/main/public/data/sapling_supply.json",
     //"https://raw.githubusercontent.com/ZecHub/zechub-wiki/main/public/data/orchard_supply.json",
@@ -33,7 +33,7 @@ async function updateData() {
 
 (async function() {
   try {
-    const [cgk, bhr, msr, zex, xpl] = await updateData();
+    const [bhr, msr, zex] = await updateData();
 
     const currentBlock = bhr.data.blocks;
     const difficulty = bhr.data.difficulty;
