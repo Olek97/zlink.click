@@ -1,6 +1,6 @@
 const config = {
   cacheKey: 'zcashDataCache',
-  cacheTimeout: 2 * 60 * 1000,
+  cacheTimeout: 3 * 60 * 1000,
   api: [
     "https://api.coingecko.com/api/v3/simple/price?ids=zcash&vs_currencies=usd&include_market_cap=false&include_24hr_vol=false&include_24hr_change=true&include_last_updated_at=false&precision=5&c",
     "https://api.blockchair.com/zcash/stats",
@@ -78,11 +78,11 @@ async function updateData() {
     document.getElementById('txt-total-supply').innerHTML = Math.floor(totalSupply).toLocaleString("en-US") + " ZEC";
 
     // Timer
-    setInterval(() => {
+    timerInterval = setInterval(() => {
       const now = Date.now();
       const distance = countDownDate - now;
-      if (distance < 0) {
-        clearInterval(interval);
+      if (distance < 1) {
+        clearInterval(timerInterval);
         alert("Happy halving! To the mooooooooooooooooooooooooooooooooooooooon.");
         return;
       }
@@ -100,6 +100,6 @@ async function updateData() {
     document.querySelector('#progress-label').innerHTML = progressPercent.toFixed(2) + '%';
   } catch (error) {
     console.error("Error in fetching data:", error);
-    alert("Error in fetching data. Try again later");
+    alert("Error in fetching data. Try again later.");
   }
 })();
