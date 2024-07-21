@@ -1,6 +1,6 @@
 const config = {
   cacheKey: 'zcashDataCache',
-  cacheTimeout: 3 * 60 * 1000,
+  cacheTimeout: 10 * 60 * 1000,
   api: [
     "https://api.blockchair.com/zcash/stats",
     "https://data.messari.io/api/v1/assets/zcash/metrics",
