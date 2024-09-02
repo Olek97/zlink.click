@@ -1,3 +1,7 @@
+alert("Important Notice: Intermittent API Data Interruption\n\n" +
+"We are experiencing intermittent interruptions in the data feed from some APIs, which is affecting the accurate display of certain data.\n\n" +
+  "Thank you for your patience.");
+
 const config = {
   cacheKey: 'zcashDataCache',
   cacheTimeout: 10 * 60 * 1000,
