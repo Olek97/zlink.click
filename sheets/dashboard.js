@@ -11,10 +11,10 @@ const config = {
     //"https://raw.githubusercontent.com/ZecHub/zechub-wiki/main/public/data/sapling_supply.json",
     //"https://raw.githubusercontent.com/ZecHub/zechub-wiki/main/public/data/orchard_supply.json",
   ],
-  previousHalvingBlock: 1046400,
-  nextHalvingBlock: 2726400,
+  previousHalvingBlock: 2726400,
+  nextHalvingBlock: 4406400,
   maxSupply: 21000000,
-  blockReward: 3.125,
+  blockReward: 1.5625,
   blocksPerDay: 1152,
 };
 
