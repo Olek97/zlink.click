@@ -1,4 +1,4 @@
-*{
+* {
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -20,12 +20,12 @@ header {
   align-items: center;
 }
 
-header > #logo:hover {
+header>#logo:hover {
   cursor: pointer;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 -6px 12px rgba(0, 0, 0, 0.2);
 }
 
-header > div:nth-child(1) {
+header>div:nth-child(1) {
   text-align: center;
 }
 
@@ -42,7 +42,7 @@ footer {
   justify-content: space-between;
 }
 
-footer > div {
+footer>div {
   flex-basis: 50%;
   text-align: center;
 }
@@ -51,6 +51,14 @@ footer div:nth-child(3) {
   padding: 10px;
   flex-basis: 100%;
   overflow-x: scroll;
+}
+
+#github-icon {
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
 /* Tags style */
@@ -166,7 +174,8 @@ table th {
   border-radius: 6px;
 }
 
-.collapsible:hover, .collapsible:focus {
+.collapsible:hover,
+.collapsible:focus {
   background-color: #f4b728;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 -10px 20px rgba(0, 0, 0, 0.3);
 }
