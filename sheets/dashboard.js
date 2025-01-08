@@ -46,7 +46,7 @@ async function updateData() {
     const orchard = zex.valuePools[3].chainValue;
     const shielded = sprout + sapling + orchard;
     const totalSupply = msr.data.supply.circulating;
-    const transparent = zex.valuePools[0].chainValue;
+    const transparent = totalSupply-shielded;
     const percentShielded = transparent !== 0 ? (shielded / transparent) * 100 : 0;
     const price = msr.data.market_data.price_usd;
     const priceChange24 = msr.data.market_data.percent_change_usd_last_24_hours;
@@ -103,7 +103,3 @@ async function updateData() {
     alert("Error in fetching data. Reload or try again later.");
   }
 })();
-
-alert("Important Notice: Intermittent API Data Interruption\n\n" +
-  "We are experiencing intermittent interruptions in the data feed from some APIs, which is affecting the accurate display of certain data.\n\n" +
-    "Thank you for your patience.");
